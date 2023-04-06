@@ -6,6 +6,7 @@ public class sol {
     class Solution {
         public List<List<Integer>> groupThePeople(int[] groupSizes) {
             int a;
+            a = 10;
         }
     }
 
