@@ -3,6 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class sol {
     public static void main(String[] args) {
@@ -32,10 +33,15 @@ public class sol {
             groupSizesMap.put(i, groupSizes[i]);
         }
 
+        List<Entry<Integer, Integer>> list = new ArrayList<>(groupSizesMap.entrySet());
+        list.sort(Entry.comparingByValue());
+        list.forEach(System.out::println);
         // groupSizesMap = sortByKeys(groupSizesMap);
 
         for (int i = 0; i < len; i++) {
-            System.out.print(groupSizesMap.get(i) + "  ");
+            System.out.print(list.get(i).getKey() + "  ");
+            System.out.print(list.get(i).getValue());
+            System.out.println();
         }
         System.out.println();
 
