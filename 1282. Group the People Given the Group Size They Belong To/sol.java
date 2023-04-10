@@ -1,32 +1,48 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class sol {
     public static void main(String[] args) {
 
+        int[] groupSizes = { 3, 3, 3, 3, 3, 1, 3 };
+        System.out.println(groupThePeople(groupSizes));
     }
 
-    class Solution {
-        public List<List<Integer>> groupThePeople(int[] groupSizes) {
+    public static List<List<Integer>> groupThePeople(int[] groupSizes) {
 
-            List<List<Integer>> a = new ArrayList<List<Integer>>();
+        List<List<Integer>> output = new ArrayList<List<Integer>>();
+        List<Integer> a = new ArrayList<Integer>();
+        a.add(0);
+        a.add(1);
+        List<Integer> b = new ArrayList<Integer>();
+        b.add(3);
+        output.add(a);
+        output.add(b);
 
-            List<Integer> b = new ArrayList<Integer>();
-            b.add(80);
-            List<Integer> c = new ArrayList<Integer>();
-            c.add(90);
+        int len = groupSizes.length;
 
-            a.add(b);
-            a.add(c);
+        System.out.println(output.size());
+        System.out.println(groupSizes.length);
 
-            // System.out.println(a.size());
-            // System.out.println(a.get(0).size());
+        Arrays.sort(groupSizes);
 
-            System.out.println(100);
+        for (int i : groupSizes) {
+            System.out.print(i + "  ");
+        }
+        System.out.println();
 
-            return a;
+        for (int i = 0; i < len; i++) {
+            int index = 0;
+
+            for (int j = 0; j < groupSizes[i]; j++) {
+
+                // i += groupSizes[i];
+            }
 
         }
+
+        return output;
     }
 
 }
