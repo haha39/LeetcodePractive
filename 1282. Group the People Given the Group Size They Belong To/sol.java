@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class sol {
     public static void main(String[] args) {
@@ -25,10 +27,15 @@ public class sol {
         System.out.println(output.size());
         System.out.println(groupSizes.length);
 
-        Arrays.sort(groupSizes);
+        Map<Integer, Integer> groupSizesMap = new HashMap<Integer, Integer>();
+        for (int i = 0; i < len; i++) {
+            groupSizesMap.put(i, groupSizes[i]);
+        }
 
-        for (int i : groupSizes) {
-            System.out.print(i + "  ");
+        // groupSizesMap = sortByKeys(groupSizesMap);
+
+        for (int i = 0; i < len; i++) {
+            System.out.print(groupSizesMap.get(i) + "  ");
         }
         System.out.println();
 
