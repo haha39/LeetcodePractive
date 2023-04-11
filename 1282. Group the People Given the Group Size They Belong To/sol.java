@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,13 +15,13 @@ public class sol {
     public static List<List<Integer>> groupThePeople(int[] groupSizes) {
 
         List<List<Integer>> output = new ArrayList<List<Integer>>();
-        List<Integer> a = new ArrayList<Integer>();
-        a.add(0);
-        a.add(1);
-        List<Integer> b = new ArrayList<Integer>();
-        b.add(3);
-        output.add(a);
-        output.add(b);
+        // List<Integer> a = new ArrayList<Integer>();
+        // a.add(0);
+        // a.add(1);
+        // List<Integer> b = new ArrayList<Integer>();
+        // b.add(3);
+        // output.add(a);
+        // output.add(b);
 
         int len = groupSizes.length;
 
@@ -46,16 +46,26 @@ public class sol {
         System.out.println();
 
         int index = 0;
-        while (index != len) {
-            List<Integer> tmp = new ArrayList<Integer>();
 
-            for (int j = 0; j < groupSizes[index]; j++) {
-                int haha = list.get(index).getKey();
-                tmp.add(haha);
-                index++;
+        while (index < len) {
+
+            List<Integer> list_tmp = new ArrayList<Integer>();
+            int size = list.get(index).getValue();
+
+            System.out.println(index);
+            System.out.println(size);
+
+            for (int j = 0; j < size; j++) {
+                int index_tmp = list.get(index + j).getKey();
+                System.out.print("    " + index_tmp + "    ");
+
+                list_tmp.add(index_tmp);
             }
-
-            output.add(tmp);
+            System.out.println();
+            index += size;
+            output.add(list_tmp);
+            System.out.println(index);
+            System.out.println();
 
         }
 
