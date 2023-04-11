@@ -45,13 +45,17 @@ public class sol {
         }
         System.out.println();
 
-        for (int i = 0; i < len; i++) {
-            int index = 0;
+        int index = 0;
+        while (index != len) {
+            List<Integer> tmp = new ArrayList<Integer>();
 
-            for (int j = 0; j < groupSizes[i]; j++) {
-
-                // i += groupSizes[i];
+            for (int j = 0; j < groupSizes[index]; j++) {
+                int haha = list.get(index).getKey();
+                tmp.add(haha);
+                index++;
             }
+
+            output.add(tmp);
 
         }
 
