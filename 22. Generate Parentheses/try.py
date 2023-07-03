@@ -4,12 +4,7 @@ import numpy as np
 class DP(object):
     def Fibonacci(self, n):
 
-        # np
-        np1 = np.zeros(n)
-
-        print(np1)
-        np1[0] = 1
-        np1[1] = 1
+        np1 = np.ones(n)
 
         for i in range(2, n, 1):
             np1[i] = np1[i-1] + np1[i-2]
