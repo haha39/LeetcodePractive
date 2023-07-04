@@ -8,11 +8,17 @@ class Solution(object):
         :rtype: List[str]
         """
         words = ["()()", "(())", "()()"]
-        a = set(words)
+
+        a = list(set(words))
         b = np.unique(words)
+        c = list(dict.fromkeys(words))
+        d = []
+        [d.append(x) for x in words if x not in d]
 
         print(a)
         print(b)
+        print(c)
+        print(d)
 
 
 if __name__ == '__main__':
