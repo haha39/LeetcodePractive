@@ -31,10 +31,18 @@ class Solution(object):
         print(list1)
         print(list1[0])
 
-        for i in range(1, n, 1):
-            print(i)
+        # for i in range(1, n, 1):
+        #     print(i)
 
 
 if __name__ == '__main__':
     haha = Solution()
     haha.generateParenthesis(3)
+
+
+'''
+3 ways:
+() + last
+last + ()
+( + last + )
+'''
