@@ -20,7 +20,21 @@ class Solution(object):
         print(c)
         print(d)
 
+        len1 = len(words)
+        print(len1)
+
+        list1 = []
+
+        list1.append(["()"])
+        list1.append(["()"])
+        list1.append(["()"])
+        print(list1)
+        print(list1[0])
+
+        for i in range(1, n, 1):
+            print(i)
+
 
 if __name__ == '__main__':
     haha = Solution()
-    haha.generateParenthesis(1)
+    haha.generateParenthesis(3)
