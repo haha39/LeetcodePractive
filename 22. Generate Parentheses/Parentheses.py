@@ -47,7 +47,7 @@ class Solution(object):
             # print(result)
 
         # return result[n-1]
-        return int(5/2)
+        return 1
 
 
 if __name__ == '__main__':
