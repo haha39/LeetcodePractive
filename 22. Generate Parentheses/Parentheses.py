@@ -46,7 +46,8 @@ class Solution(object):
             result.append(list(set(tmp)))
             # print(result)
 
-        return result[n-1]
+        # return result[n-1]
+        return int(5/2)
 
 
 if __name__ == '__main__':
@@ -61,4 +62,6 @@ if __name__ == '__main__':
 2
 3 : (2), 1 X 2
 4 : (3), 1 X 3, 2 X 2
+5 : (4), 1 X 4, 2 X 3
+6 : (5), 1 X 5, 2 X 4, 3 X 3
 '''
