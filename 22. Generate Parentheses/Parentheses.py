@@ -1,3 +1,12 @@
+'''
+1
+2
+3 : (2), 1 X 2
+4 : (3), 1 X 3, 2 X 2
+5 : (4), 1 X 4, 2 X 3
+6 : (5), 1 X 5, 2 X 4, 3 X 3
+'''
+
 import numpy as np
 
 
@@ -7,22 +16,6 @@ class Solution(object):
         :type n: int
         :rtype: List[str]
         """
-        # words = ["()()", "(())", "()()"]
-
-        # a = list(set(words))
-        # b = np.unique(words)
-        # c = list(dict.fromkeys(words))
-        # d = []
-        # [d.append(x) for x in words if x not in d]
-
-        # # print(a)
-        # # print(b)
-        # # print(c)
-        # # print(d)
-
-        # # len1 = len(words)
-        # # print(len1)
-
         result = []
 
         result.append(["()"])
@@ -40,7 +33,7 @@ class Solution(object):
                 tmp.append(str1)
 
             # step2
-            len_half = int(n/2)
+            len_half = int((i+1)/2)
             print("len_half : %d" % len_half)
 
             for j in range(len_half):
@@ -73,13 +66,3 @@ if __name__ == '__main__':
     ya = haha.generateParenthesis(3)
 
     print(ya)
-
-
-'''
-1
-2
-3 : (2), 1 X 2
-4 : (3), 1 X 3, 2 X 2
-5 : (4), 1 X 4, 2 X 3
-6 : (5), 1 X 5, 2 X 4, 3 X 3
-'''
