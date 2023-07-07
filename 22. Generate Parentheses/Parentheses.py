@@ -29,19 +29,32 @@ class Solution(object):
         # # print(result)
 
         for i in range(1, n, 1):
-            # print(i)
+            # step1
             tmp = []
-            length = len(result[i-1])
-            # print(length)
+            last = i - 1
+            len_last = len(result[last])
 
-            for j in range(length):
-                str1 = "()" + result[i-1][j]
-                str2 = "(" + result[i-1][j] + ")"
-                str3 = result[i-1][j] + "()"
+            for j in range(len_last):
+                str1 = "(" + result[i-1][j] + ")"
                 tmp.append(str1)
-                tmp.append(str2)
-                tmp.append(str3)
 
+            # step2
+            len_half = int(n/2)
+
+            for j in range(len_half):
+                x = j
+                y = n - j - 2
+                len_x = len(result[x])
+                len_y = len(result[y])
+
+                for a in range(len_x):
+                    for b in range(len_y):
+                        str2 = result[x][a] + result[y][b]
+                        str3 = result[y][b] + result[x][a]
+                        tmp.append(str2)
+                        tmp.append(str3)
+
+            # step3
             # print(tmp)
             result.append(list(set(tmp)))
             # print(result)
@@ -52,7 +65,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     haha = Solution()
-    ya = haha.generateParenthesis(4)
+    ya = haha.generateParenthesis(3)
 
     print(ya)
 
