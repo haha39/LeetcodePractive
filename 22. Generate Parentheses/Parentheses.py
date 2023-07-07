@@ -64,8 +64,8 @@ class Solution(object):
             result.append(list(set(tmp)))
             # print(result)
 
-        # return result[n-1]
-        return int(5/2)
+        return result[n-1]
+        # return int(5/2)
 
 
 if __name__ == '__main__':
