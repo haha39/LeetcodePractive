@@ -29,6 +29,7 @@ class Solution(object):
         # # print(result)
 
         for i in range(1, n, 1):
+            print("round : %d" % i)
             # step1
             tmp = []
             last = i - 1
@@ -40,10 +41,14 @@ class Solution(object):
 
             # step2
             len_half = int(n/2)
+            print("len_half : %d" % len_half)
 
             for j in range(len_half):
                 x = j
-                y = n - j - 2
+                y = i - j - 1
+                print("x : %d" % x)
+                print("y : %d" % y)
+
                 len_x = len(result[x])
                 len_y = len(result[y])
 
