@@ -22,7 +22,6 @@ class Solution(object):
         # # print(result)
 
         for i in range(1, n, 1):
-            print("round : %d" % i)
             # step1
             tmp = []
             last = i - 1
@@ -34,13 +33,10 @@ class Solution(object):
 
             # step2
             len_half = int((i+1)/2)
-            print("len_half : %d" % len_half)
 
             for j in range(len_half):
                 x = j
                 y = i - j - 1
-                print("x : %d" % x)
-                print("y : %d" % y)
 
                 len_x = len(result[x])
                 len_y = len(result[y])
@@ -53,16 +49,13 @@ class Solution(object):
                         tmp.append(str3)
 
             # step3
-            # print(tmp)
             result.append(list(set(tmp)))
-            # print(result)
 
         return result[n-1]
-        # return int(5/2)
 
 
 if __name__ == '__main__':
     haha = Solution()
-    ya = haha.generateParenthesis(3)
+    ya = haha.generateParenthesis(4)
 
     print(ya)
