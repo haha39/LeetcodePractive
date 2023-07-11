@@ -7,9 +7,10 @@ class BS(object):
         """
         left, right = price[0], price[-1]
         mid = int((left + right) / 2)
-        print(left, right, mid)
 
         while (True):
+            print(left, right, mid)
+
             if left == k:
                 print(0)
                 break
