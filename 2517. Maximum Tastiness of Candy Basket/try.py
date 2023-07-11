@@ -8,17 +8,16 @@ class BS(object):
         left, right = price[0], price[-1]
         mid = int((left + right) / 2)
 
+        if left == k:
+            print("wryyyy")
+        elif right == k:
+            print("jojoooo")
+
         while (True):
             print(left, right, mid)
 
-            if left == k:
-                print(0)
-                break
-            elif right == k:
-                print(1)
-                break
-            elif mid == k:
-                print(2)
+            if mid == k:
+                print("yaaaa")
                 break
             elif k > mid:
                 left = mid
