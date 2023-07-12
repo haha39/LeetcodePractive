@@ -20,10 +20,10 @@ class BS(object):
                 print("yaaaa")
                 break
             elif k > mid:
-                left = mid
+                left = mid+1
                 mid = int((mid + right) / 2)
             elif k < mid:
-                right = mid
+                right = mid-1
                 mid = int((mid + left) / 2)
 
 
