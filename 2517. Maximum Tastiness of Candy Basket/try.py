@@ -6,7 +6,7 @@ class BS(object):
         :rtype: int
         """
         left, right = price[0], price[-1]
-        mid = int((left + right) / 2)
+        mid = (left + right) // 2
 
         if left == k:
             print("wryyyy")
@@ -21,10 +21,10 @@ class BS(object):
                 break
             elif k > mid:
                 left = mid+1
-                mid = int((mid + right) / 2)
+                mid = (mid + right) // 2
             elif k < mid:
                 right = mid-1
-                mid = int((mid + left) / 2)
+                mid = (mid + left) // 2
 
 
 if __name__ == '__main__':
