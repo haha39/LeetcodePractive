@@ -5,6 +5,13 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
+        lo, hi = 0, 10 ** 9
+        price.sort()
+
+        return 0
+
+    def check(self, price, temp_min):
+        last, ct, i = price[0], 1, 1
 
 
 if __name__ == '__main__':
