@@ -24,7 +24,7 @@ class Solution(object):
 
             return (ct == k)
 
-        lo, hi = 0, 10 ** 9
+        lo, hi = 0, 10 ** 2
         price.sort()
 
         while lo < hi:
