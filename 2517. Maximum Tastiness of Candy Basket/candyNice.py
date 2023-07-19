@@ -22,10 +22,13 @@ class Solution(object):
                     last = price[i]
                     ct += 1
 
+                i += 1
+
             return (ct == k)
 
-        lo, hi = 0, 10 ** 2
         price.sort()
+        # lo, hi = 0, 10 ** 9
+        lo, hi = 0, price[-1] - price[0] + 1
 
         while lo < hi:
             mid = lo + (hi - lo) // 2
@@ -40,7 +43,11 @@ class Solution(object):
 if __name__ == '__main__':
 
     x = [13, 5, 1, 8, 21, 2]
-    haha = Solution()
-    output = haha.maximumTastiness(x, 3)
+    y = [7, 7, 7, 7, 7, 7, 7]
 
-    print(output)
+    haha = Solution()
+    output1 = haha.maximumTastiness(x, 3)
+    output2 = haha.maximumTastiness(y, 2)
+
+    print(output1)
+    print(output2)
