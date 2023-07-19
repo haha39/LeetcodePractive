@@ -14,7 +14,7 @@ class Solution(object):
         :rtype: int
         """
 
-        def BS_check(self, price, k, temp_min):
+        def BS_check(temp_min):
             last, ct, i = price[0], 1, 1
 
             while ct < k and i < len(price):
@@ -41,4 +41,6 @@ if __name__ == '__main__':
 
     x = [13, 5, 1, 8, 21, 2]
     haha = Solution()
-    haha.maximumTastiness(x, 3)
+    output = haha.maximumTastiness(x, 3)
+
+    print(output)
