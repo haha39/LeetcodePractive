@@ -6,3 +6,11 @@ class Solution(object):
         :type baseStr: str
         :rtype: str
         """
+
+
+if __name__ == '__main__':
+    s1 = "parker"
+    s2 = "morris"
+    baseStr = "parser"
+    haha = Solution()
+    haha.smallestEquivalentString(s1, s2, baseStr)
