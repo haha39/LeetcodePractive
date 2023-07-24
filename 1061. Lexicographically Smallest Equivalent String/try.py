@@ -1,4 +1,9 @@
+import numpy as np
+
+
 class Solution(object):
+    list1 = np.arange(26)
+
     def smallestEquivalentString(self, s1, s2, baseStr):
         """
         :type s1: str
@@ -13,19 +18,11 @@ class Solution(object):
         for i in range(length):
             Solution.union(s1[i], s2[i])
 
-    def find(self, element):
+    def find(num):
         x = 1
 
-    def union(self, u, v):
-        u = self.find(u)
-        v = self.find(v)
-        if u != v:
-            if u < v:
-                self.parents[v] = u
-            else:
-                self.parents[u] = v
-
-            self.count -= 1
+    def union(u, v):
+        x = 1
 
 
 if __name__ == '__main__':
@@ -34,3 +31,9 @@ if __name__ == '__main__':
     baseStr = "parser"
     haha = Solution()
     haha.smallestEquivalentString(s1, s2, baseStr)
+
+    x = np.arange(26)
+    print(x)
+
+    a = ord(s1[0]) - 97
+    print(a)
