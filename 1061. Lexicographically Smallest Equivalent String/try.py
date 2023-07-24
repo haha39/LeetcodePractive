@@ -1,9 +1,3 @@
-class Node:
-    def __init__(self):
-        self.parent = self
-        self.rank = 0
-
-
 class Solution(object):
     def smallestEquivalentString(self, s1, s2, baseStr):
         """
@@ -15,23 +9,22 @@ class Solution(object):
         length = len(s1)
         str = ""
 
+        # union
         for i in range(length):
             Solution.union(s1[i], s2[i])
 
     def find(self, element):
-        return self._find(self.sets[element])
-
-    def _find(self, n):
-        if n.parent != n:
-            # path compression
-            n.parent = self._find(n.parent)
-        return n.parent
+        x = 1
 
     def union(self, u, v):
         u = self.find(u)
         v = self.find(v)
         if u != v:
-            self.parents[u] = v
+            if u < v:
+                self.parents[v] = u
+            else:
+                self.parents[u] = v
+
             self.count -= 1
 
 
