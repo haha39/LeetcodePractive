@@ -1,5 +1,7 @@
 import numpy as np
 
+list1 = np.arange(26)
+
 
 class Solution(object):
 
@@ -10,34 +12,38 @@ class Solution(object):
         :type baseStr: str
         :rtype: str
         """
-        list1 = np.arange(26)
+        print(list1)
         length = len(s1)
         str = ""
+        Solution.happy()
+        print(list1)
 
         # union
         for i in range(length):
-            print(i)
+            # print(i)
             index1, index2 = ord(s1[i]) - 97, ord(s2[i]) - 97
-            print(index1)
-            print(index2)
-            Solution.union(list1, index1, index2)
+
+            # Solution.union(index1, index2)
 
         # find
+    def happy():
+        for i in range(26):
+            list1[i] += 10
 
-    def find(list2, node):
-        if node != list2[node]:
-            list2[node] = Solution.find(list2[node])
+    # def find(list2, node):
+    #     if node != list2[node]:
+    #         list2[node] = Solution.find(list2[node])
 
-        return list2[node]
+    #     return list2[node]
 
-    def union(list3, u, v):
-        root_u = Solution.find(u)
-        root_v = Solution.find(v)
+    # def union(list3, u, v):
+    #     root_u = Solution.find(u)
+    #     root_v = Solution.find(v)
 
-        if root_u < root_v:
-            list3[v] = root_u
-        elif root_u > root_v:
-            list3[u] = root_v
+    #     if root_u < root_v:
+    #         list3[v] = root_u
+    #     elif root_u > root_v:
+    #         list3[u] = root_v
 
 
 if __name__ == '__main__':
