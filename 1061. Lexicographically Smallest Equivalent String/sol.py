@@ -19,28 +19,26 @@ class Solution(object):
         for i in range(length):
             print(i)
             index1, index2 = ord(s1[i]) - 97, ord(s2[i]) - 97
-            print(index1)
-            print(list1[index1])
             Solution.union(index1, index2)
 
         # find
 
     def find(node):
         if node != list[node]:
-            print(node)
-            print(list1[node])
-            # list[node] = Solution.find(list[node])
+            print(type(node))
+            print(type(int(list1[node])))
+        # list[node] = Solution.find(list[node])
 
         return list[node]
 
     def union(u, v):
         root_u = Solution.find(u)
-        root_v = Solution.find(v)
+        # root_v = Solution.find(v)
 
-        if root_u < root_v:
-            list[v] = root_u
-        elif root_u > root_v:
-            list[u] = root_v
+        # if root_u < root_v:
+        #     list[v] = root_u
+        # elif root_u > root_v:
+        #     list[u] = root_v
 
 
 if __name__ == '__main__':
