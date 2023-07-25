@@ -27,18 +27,21 @@ class Solution(object):
 
     def find(node):
         if node != list1[node]:
-            list[node] = Solution.find(list[node])
+            list1[node] = Solution.find(list1[node])
 
-        return list[node]
+        return list1[node]
 
     def union(u, v):
         root_u = Solution.find(u)
         root_v = Solution.find(v)
 
+        print(root_u)
+        print(root_v)
+
         if root_u < root_v:
-            list[v] = root_u
+            list1[v] = root_u
         elif root_u > root_v:
-            list[u] = root_v
+            list1[u] = root_v
 
 
 if __name__ == '__main__':
