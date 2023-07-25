@@ -1,6 +1,8 @@
 import numpy as np
 
-list1 = np.arange(26)
+list1 = []
+for i in range(26):
+    list1.append(i)
 
 
 class Solution(object):
@@ -24,21 +26,19 @@ class Solution(object):
         # find
 
     def find(node):
-        if node != list[node]:
-            print(type(node))
-            print(type(int(list1[node])))
-        # list[node] = Solution.find(list[node])
+        if node != list1[node]:
+            list[node] = Solution.find(list[node])
 
         return list[node]
 
     def union(u, v):
         root_u = Solution.find(u)
-        # root_v = Solution.find(v)
+        root_v = Solution.find(v)
 
-        # if root_u < root_v:
-        #     list[v] = root_u
-        # elif root_u > root_v:
-        #     list[u] = root_v
+        if root_u < root_v:
+            list[v] = root_u
+        elif root_u > root_v:
+            list[u] = root_v
 
 
 if __name__ == '__main__':
