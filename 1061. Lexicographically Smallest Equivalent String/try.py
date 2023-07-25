@@ -1,5 +1,3 @@
-import numpy as np
-
 list1 = []
 for i in range(26):
     list1.append(i)
@@ -14,16 +12,26 @@ class Solution(object):
         :type baseStr: str
         :rtype: str
         """
-        length = len(s1)
+        len1 = len(s1)
+        len2 = len(baseStr)
         str = ""
 
         # union
-        for i in range(length):
+        for i in range(len1):
             print(i)
             index1, index2 = ord(s1[i]) - 97, ord(s2[i]) - 97
             Solution.union(index1, index2)
 
+            print(list1)
+
         # find
+        for i in range(len2):
+            num = ord(baseStr[i]) - 97
+            num = Solution.find(num)
+            num = num + 97
+            str = str + chr(num)
+
+        print(str)
 
     def find(node):
         if node != list1[node]:
@@ -34,9 +42,6 @@ class Solution(object):
     def union(u, v):
         root_u = Solution.find(u)
         root_v = Solution.find(v)
-
-        print(root_u)
-        print(root_v)
 
         if root_u < root_v:
             list1[v] = root_u
@@ -50,8 +55,3 @@ if __name__ == '__main__':
     baseStr = "parser"
     haha = Solution()
     haha.smallestEquivalentString(s1, s2, baseStr)
-
-    x = np.arange(26)
-
-    a = ord(s1[1]) - 97
-    print(a)
