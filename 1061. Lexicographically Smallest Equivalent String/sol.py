@@ -14,16 +14,26 @@ class Solution(object):
         :type baseStr: str
         :rtype: str
         """
-        length = len(s1)
+        len1 = len(s1)
+        len2 = len(baseStr)
         str = ""
 
         # union
-        for i in range(length):
+        for i in range(len1):
             print(i)
             index1, index2 = ord(s1[i]) - 97, ord(s2[i]) - 97
             Solution.union(index1, index2)
 
+            print(list1)
+
         # find
+        for i in range(len2):
+            num = ord(baseStr[i]) - 97
+            num = Solution.find(num)
+            num = num + 97
+            str + chr(num)
+
+        print(str)
 
     def find(node):
         if node != list1[node]:
@@ -53,5 +63,5 @@ if __name__ == '__main__':
 
     x = np.arange(26)
 
-    a = ord(s1[1]) - 97
-    print(a)
+    # a = ord(s1[1]) - 97
+    # print(a)
