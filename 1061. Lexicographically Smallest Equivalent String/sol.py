@@ -1,5 +1,3 @@
-import numpy as np
-
 list1 = []
 for i in range(26):
     list1.append(i)
@@ -31,7 +29,7 @@ class Solution(object):
             num = ord(baseStr[i]) - 97
             num = Solution.find(num)
             num = num + 97
-            str + chr(num)
+            str = str + chr(num)
 
         print(str)
 
@@ -45,9 +43,6 @@ class Solution(object):
         root_u = Solution.find(u)
         root_v = Solution.find(v)
 
-        print(root_u)
-        print(root_v)
-
         if root_u < root_v:
             list1[v] = root_u
         elif root_u > root_v:
@@ -60,8 +55,3 @@ if __name__ == '__main__':
     baseStr = "parser"
     haha = Solution()
     haha.smallestEquivalentString(s1, s2, baseStr)
-
-    x = np.arange(26)
-
-    # a = ord(s1[1]) - 97
-    # print(a)
