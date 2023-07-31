@@ -39,13 +39,13 @@ class Solution(object):
         # union s1 and s2
         for i in range(len1):
             # print(i)
-            index1, index2 = ord(s1[i]) - 97, ord(s2[i]) - 97
-            union(index1, index2)
+            index1, index2 = ord(s1[i]) - 'a', ord(s2[i]) - 'a'
+            ds.union(index1, index2)
 
         # find by baseStr
         for i in range(len2):
             num = ord(baseStr[i]) - 97
-            num = find(num)
+            num = ds.find(num)
             num = num + 97
             str = str + chr(num)
 
@@ -60,4 +60,6 @@ if __name__ == '__main__':
     baseStr = "sourcecode"
 
     haha = Solution()
-    haha.smallestEquivalentString(s1, s2, baseStr)
+    jo = haha.smallestEquivalentString(s1, s2, baseStr)
+
+    print(jo)
