@@ -39,7 +39,7 @@ class Solution(object):
         # union s1 and s2
         for i in range(len1):
             # print(i)
-            index1, index2 = ord(s1[i]) - 'a', ord(s2[i]) - 'a'
+            index1, index2 = ord(s1[i]) - 97, ord(s2[i]) - 97
             ds.union(index1, index2)
 
         # find by baseStr
