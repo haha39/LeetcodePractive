@@ -1,8 +1,8 @@
 class Solution(object):
-    def canVisitAllRooms(self, rooms):
+    def allPathsSourceTarget(self, graph):
         """
-        :type rooms: List[List[int]]
-        :rtype: bool
+        :type graph: List[List[int]]
+        :rtype: List[List[int]]
         """
 
 
