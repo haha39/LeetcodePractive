@@ -4,6 +4,10 @@ class Solution(object):
         :type rooms: List[List[int]]
         :rtype: bool
         """
+        self.rooms = rooms
+        output = Solution.dfs(self.rooms, 0)
+
+        return output
 
     def dfs(graph, start):
         stack = []
@@ -28,4 +32,8 @@ class Solution(object):
 
 if __name__ == '__main__':
     haha = Solution()
-    haha.canVisitAllRooms(10)
+    rooms = [[1], [2], [3], []]
+
+    nas = haha.canVisitAllRooms(rooms)
+
+    print(nas)
