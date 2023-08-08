@@ -5,6 +5,7 @@ class Solution(object):
         :rtype: bool
         """
         self.rooms = rooms
+
         output = Solution.dfs(self.rooms, 0)
 
         return output
@@ -27,7 +28,7 @@ class Solution(object):
                     stack.append(neighbor)
                     visited.add(neighbor)
 
-        return result
+        return len(result) == len(graph)
 
 
 if __name__ == '__main__':
