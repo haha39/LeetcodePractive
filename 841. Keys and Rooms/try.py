@@ -4,19 +4,25 @@ class Solution(object):
         :type rooms: List[List[int]]
         :rtype: bool
         """
+
     def dfs(graph, start):
         stack = []
         result = []
+
         stack.append(start)
         visited = set()
         visited.add(start)
+
         while (len(stack) > 0):
             currentVertex = stack.pop()
             result.append(currentVertex)
+
             for neighbor in graph[currentVertex]:
                 if neighbor not in visited:
+
                     stack.append(neighbor)
                     visited.add(neighbor)
+
         return result
 
 
