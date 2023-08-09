@@ -24,9 +24,9 @@ class Solution(object):
         :type rooms: List[List[int]]
         :rtype: bool
         """
-        self.rooms = rooms
+        rooms
 
-        output = dfs(self.rooms, 0)
+        output = dfs(rooms, 0)
 
         return output
 
