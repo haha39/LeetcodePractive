@@ -24,4 +24,8 @@ class Solution(object):
 
 if __name__ == '__main__':
     haha = Solution()
-    haha.canVisitAllRooms(10)
+    rooms = [[1], [2], [3], []]
+
+    fish = haha.allPathsSourceTarget(rooms)
+
+    print(fish)
