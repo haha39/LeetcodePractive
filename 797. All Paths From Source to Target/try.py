@@ -1,19 +1,30 @@
 class Solution(object):
     def allPathsSourceTarget(self, graph):
-        def bfs(graph, start, end):
+        def bfs(rverse_graph, start, end):
+
+            size = start + 1
             queue = []
             result = []
+            node = []
+
+            for i in range(size):
+                node.append([start])
 
             queue.append(start)
 
             while (len(queue) > 0):
                 currentVertex = queue.pop(0)  # FIFS -> .pop(0)
-                result.append(currentVertex)
+                tmp = []
+                tmp.append(currentVertex)
 
-                for neighbor in graph[currentVertex]:
-                    if neighbor == start:
-                        # queue.append(neighbor)
-                        x = 0
+                for neighbor in rverse_graph[currentVertex]:
+                    queue.append(neighbor)
+
+                    if neighbor == end:
+                        node[currentVertex].insert(0, end)
+                        result.append(tmp)
+                    else:
+                        node[currentVertex].insert(0, neighbor)
 
             return result
 
@@ -21,21 +32,22 @@ class Solution(object):
         :type graph: List[List[int]]
         :rtype: List[List[int]]
         """
+        # reverse direct graph in list rev_dir_graph
         rev_dir_graph = []
         size = len(graph)
 
         for i in range(size):
-            i_list = []
+            rev_dir_graph.append([])
 
-            for j in range(size):
-                if i in graph[j]:
-                    i_list.append(j)
-
-            rev_dir_graph.append(i_list)
+        for i in range(size):
+            for j in graph[i]:
+                rev_dir_graph[j].append(i)
 
         print(rev_dir_graph)
 
-        rev_dir_graph2 = []
+        bfs(rev_dir_graph, (size-1), 0)
+
+        return "hehe"
 
 
 if __name__ == '__main__':
