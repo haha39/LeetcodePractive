@@ -21,6 +21,21 @@ class Solution(object):
         :type graph: List[List[int]]
         :rtype: List[List[int]]
         """
+        rev_dir_graph = []
+        size = len(graph)
+
+        for i in range(size):
+            i_list = []
+
+            for j in range(size):
+                if i in graph[j]:
+                    i_list.append(j)
+
+            rev_dir_graph.append(i_list)
+
+        print(rev_dir_graph)
+
+        rev_dir_graph2 = []
 
 
 if __name__ == '__main__':
