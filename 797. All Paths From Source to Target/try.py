@@ -1,22 +1,19 @@
 class Solution(object):
     def allPathsSourceTarget(self, graph):
-        def bfs(graph, start):
-
+        def bfs(graph, start, end):
             queue = []
             result = []
-            visited = set()
 
             queue.append(start)
-            visited.add(start)
 
             while (len(queue) > 0):
-                currentVertex = queue.pop(0)
+                currentVertex = queue.pop(0)  # FIFS -> .pop(0)
                 result.append(currentVertex)
 
                 for neighbor in graph[currentVertex]:
-                    if neighbor not in visited:
-                        queue.append(neighbor)
-                        visited.add(neighbor)
+                    if neighbor == start:
+                        # queue.append(neighbor)
+                        x = 0
 
             return result
 
