@@ -14,7 +14,6 @@ class Solution(object):
 
                 for neighbor in graph[currentVertex]:
                     if neighbor not in visited:
-
                         stack.append(neighbor)
                         visited.add(neighbor)
 
