@@ -55,7 +55,7 @@ class Solution(object):
 
         print(rev_dir_graph)
 
-        # bfs(rev_dir_graph, (size-1), 0)
+        bfs(rev_dir_graph, (size-1), 0)
 
         return "hehe"
 
