@@ -3,9 +3,9 @@ class Solution(object):
         def dfs(graph, start):
             stack = []
             result = []
+            visited = set()
 
             stack.append(start)
-            visited = set()
             visited.add(start)
 
             while (len(stack) > 0):
