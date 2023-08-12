@@ -1,3 +1,6 @@
+import copy
+
+
 class Solution(object):
     def allPathsSourceTarget(self, graph):
         def bfs(rverse_graph, start, end):
@@ -5,26 +8,33 @@ class Solution(object):
             size = start + 1
             queue = []
             result = []
-            node = []
+            vertex = []
 
             for i in range(size):
-                node.append([start])
+                vertex.append([])
+            vertex[-1].append(start)
 
             queue.append(start)
 
             while (len(queue) > 0):
                 currentVertex = queue.pop(0)  # FIFS -> .pop(0)
-                tmp = []
-                tmp.append(currentVertex)
+                print("currentVertex : %d" % currentVertex)
 
                 for neighbor in rverse_graph[currentVertex]:
+                    print("neighbor : %d" % neighbor)
+
                     queue.append(neighbor)
+                    tmp = copy.deepcopy(vertex[currentVertex])
+                    tmp.insert(0, neighbor)
 
                     if neighbor == end:
-                        node[currentVertex].insert(0, end)
                         result.append(tmp)
+
                     else:
-                        node[currentVertex].insert(0, neighbor)
+                        vertex[neighbor] = copy.deepcopy(tmp)
+
+                    vertex[currentVertex] = []  # clear
+                    vertex[currentVertex].append(start)
 
             return result
 
@@ -45,7 +55,7 @@ class Solution(object):
 
         print(rev_dir_graph)
 
-        bfs(rev_dir_graph, (size-1), 0)
+        # bfs(rev_dir_graph, (size-1), 0)
 
         return "hehe"
 
@@ -53,6 +63,13 @@ class Solution(object):
 if __name__ == '__main__':
     haha = Solution()
     graph = [[4, 3, 1], [3, 2, 4], [3], [4], []]
+
+    # a = []
+    # a.append(1)
+    # a.append(10)
+
+    # a = copy.deepcopy(graph)
+    # print(a)
 
     fish = haha.allPathsSourceTarget(graph)
 
