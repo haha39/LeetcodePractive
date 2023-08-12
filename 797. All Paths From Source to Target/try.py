@@ -25,7 +25,9 @@ class Solution(object):
 
                     queue.append(neighbor)
                     tmp = copy.deepcopy(vertex[currentVertex])
+                    print(tmp)
                     tmp.insert(0, neighbor)
+                    print(tmp)
 
                     if neighbor == end:
                         result.append(tmp)
@@ -33,8 +35,13 @@ class Solution(object):
                     else:
                         vertex[neighbor] = copy.deepcopy(tmp)
 
-                    vertex[currentVertex] = []  # clear
-                    vertex[currentVertex].append(start)
+                vertex[currentVertex] = []  # clear
+                vertex[currentVertex].append(start)
+
+                print("result :")
+                print(result)
+                print("node :")
+                print(vertex)
 
             return result
 
@@ -55,9 +62,11 @@ class Solution(object):
 
         print(rev_dir_graph)
 
-        bfs(rev_dir_graph, (size-1), 0)
+        output = bfs(rev_dir_graph, (size-1), 0)
 
-        return "hehe"
+        print(output)
+
+        return output
 
 
 if __name__ == '__main__':
