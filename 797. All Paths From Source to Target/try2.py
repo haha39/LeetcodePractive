@@ -14,33 +14,40 @@ class Solution(object):
 
             i = 0
             for neighbor in rev_dir_graph[start]:
-                print(i)
+                # print(i)
 
-                print("in bfs(), neighbor is : %d" % neighbor)
-                print("tmp : ")
-                print(tmp)
+                # print("in bfs(), neighbor is : %d" % neighbor)
+                # print("tmp : ")
+                # print(tmp)
 
                 if neighbor != 0:
 
                     a = copy.deepcopy(path)
                     output = bfs(rev_dir_graph, neighbor, end, tmp[i])
+                    print(output)
                     path = copy.deepcopy(a)
                     # print(a)
-
+                    len0 = len(output)
                     tmp[i] = output[0]
-                    print("????????")
-                    print(tmp)
+
+                    for i in range(len0-1):
+                        tmp.append(output[i+1])
+
+                    # for i in range(len(output)):
+                    # tmp[i] = output[0]
+                    # print("????????")
+                    # print(tmp)
                 else:
                     # path.insert(0, 0)
                     tmp[i] = [0] + tmp[i]
 
                 i = i + 1
 
-                print("hahahahaha : %d" % neighbor)
-                print(tmp)
+                # print("hahahahaha : %d" % neighbor)
+                # print(tmp)
 
-            print("tmp")
-            print(tmp)
+            # print("tmp")
+            # print(tmp)
 
             return tmp
 
@@ -88,25 +95,21 @@ class Solution(object):
 
         # print(output)
 
-        return output
+        return all_path
 
 
 if __name__ == '__main__':
+
     haha = Solution()
+
+    graph0 = [[1, 2], [3], [3], []]
+
     graph1 = [[4, 3, 1], [3, 2, 4], [3], [4], []]
 
     graph2 = [[3, 1], [4, 6, 7, 2, 5], [4, 6, 3],
               [6, 4], [7, 6, 5], [6], [7], []]
 
-    a = []
-    a.append(1)
-
-    b = [2, 3]
-
-    c = a + b
-
-    print(c)
-
     jojo = haha.allPathsSourceTarget(graph2)
 
     print("answer : \n\n")
+    print(jojo)
