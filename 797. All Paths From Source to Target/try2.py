@@ -5,24 +5,44 @@ class Solution(object):
     def allPathsSourceTarget(self, graph):
 
         def bfs(rev_dir_graph, start, end, path):
-            print("in bfs(), start is %d" % start)
-            print("path : ")
-            print(path)
 
+            print("in bfs(), start is %d" % start)
+
+            tmp = []
+            for i in range(len(rev_dir_graph[start])):
+                tmp.append([start]+path)
+
+            i = 0
             for neighbor in rev_dir_graph[start]:
+                print(i)
+
                 print("in bfs(), neighbor is : %d" % neighbor)
-                path.insert(0, start)
+                print("tmp : ")
+                print(tmp)
 
                 if neighbor != 0:
-                    output = bfs(rev_dir_graph, neighbor, end, path)
-                    path = output + path
+
+                    a = copy.deepcopy(path)
+                    output = bfs(rev_dir_graph, neighbor, end, tmp[i])
+                    path = copy.deepcopy(a)
+                    # print(a)
+
+                    tmp[i] = output[0]
+                    print("????????")
+                    print(tmp)
                 else:
-                    path.insert(0, 0)
+                    # path.insert(0, 0)
+                    tmp[i] = [0] + tmp[i]
 
-                print("path : ")
-                print(path)
+                i = i + 1
 
-            return path
+                print("hahahahaha : %d" % neighbor)
+                print(tmp)
+
+            print("tmp")
+            print(tmp)
+
+            return tmp
 
         """
         :type graph: List[List[int]]
@@ -47,21 +67,24 @@ class Solution(object):
 
         # 0000
         all_path = []
-        path = [end]
 
         for neighbor in rev_dir_graph[end]:
+            path1 = [end]
+
             print("neighbor0 : %d" % neighbor)
 
             if neighbor != 0:
                 print("call bfs:")
-                output = bfs(rev_dir_graph, neighbor, start, path)
-                all_path.append(output)
+
+                output = bfs(rev_dir_graph, neighbor, start, path1)
+                all_path = all_path + output
             else:
-                output = [0, end]
-                all_path.append(output)
+                output = [[0, end]]
+                all_path = all_path + output
 
             print("all_path:")
             print(all_path)
+            print("\n")
 
         # print(output)
 
@@ -84,7 +107,6 @@ if __name__ == '__main__':
 
     print(c)
 
-    fish = haha.allPathsSourceTarget(graph1)
+    jojo = haha.allPathsSourceTarget(graph2)
 
     print("answer : \n\n")
-    print(fish)
