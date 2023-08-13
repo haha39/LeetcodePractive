@@ -3,56 +3,37 @@ import copy
 
 class Solution(object):
     def allPathsSourceTarget(self, graph):
-        def bfs(rverse_graph, vertex, start, end):
 
-            size = start + 1
-            queue = []
-            result = []
+        def bfs(rev_dir_graph, start, end, path):
+            print("in bfs(), start is %d" % start)
+            print("path : ")
+            print(path)
 
-            queue.append(start)
+            for neighbor in rev_dir_graph[start]:
+                print("in bfs(), neighbor is : %d" % neighbor)
+                path.insert(0, start)
 
-            while (len(queue) > 0):
-                # currentVertex = queue.pop(0)  # FIFS -> .pop(0)
-                currentVertex = queue.pop()  # FILS -> .pop(0)
+                if neighbor != 0:
+                    output = bfs(rev_dir_graph, neighbor, end, path)
+                    path = output + path
+                else:
+                    path.insert(0, 0)
 
-                print("currentVertex : %d" % currentVertex)
+                print("path : ")
+                print(path)
 
-                for neighbor in rverse_graph[currentVertex]:
-                    print("neighbor : %d" % neighbor)
-                    # tmp_result = bfs(rev_dir_graph, vertex, start, end)
-                    # if tmp_result != [[]]:
-                    #     for i in tmp_result:
-                    #         result.append(i)
-
-                    queue.append(neighbor)
-                    tmp = copy.deepcopy(vertex[currentVertex])
-                    tmp.insert(0, neighbor)
-
-                    if neighbor == end:
-                        result.append(tmp)
-                    else:
-
-                        vertex[neighbor] = copy.deepcopy(tmp)
-
-                vertex[currentVertex] = []  # clear
-                if currentVertex != start:
-                    vertex[currentVertex].append(currentVertex)
-                vertex[currentVertex].append(start)
-
-                print("result :")
-                print(result)
-                print("node :")
-                print(vertex)
-
-            return result
+            return path
 
         """
         :type graph: List[List[int]]
         :rtype: List[List[int]]
         """
         # reverse direct graph in list rev_dir_graph
+
         rev_dir_graph = []
         size = len(graph)
+        start = 0
+        end = size - 1
 
         for i in range(size):
             rev_dir_graph.append([])
@@ -60,18 +41,27 @@ class Solution(object):
         for i in range(size):
             for j in graph[i]:
                 rev_dir_graph[j].append(i)
-        vertex = []
 
-        for i in range(size):
-            vertex.append([])
-        vertex[-1].append(size-1)
-
-        print("vertex :")
-        print(vertex)
         print("rev_dir_graph :")
         print(rev_dir_graph)
 
-        output = bfs(rev_dir_graph, vertex, (size-1), 0)
+        # 0000
+        all_path = []
+        path = [end]
+
+        for neighbor in rev_dir_graph[end]:
+            print("neighbor0 : %d" % neighbor)
+
+            if neighbor != 0:
+                print("call bfs:")
+                output = bfs(rev_dir_graph, neighbor, start, path)
+                all_path.append(output)
+            else:
+                output = [0, end]
+                all_path.append(output)
+
+            print("all_path:")
+            print(all_path)
 
         # print(output)
 
@@ -85,12 +75,14 @@ if __name__ == '__main__':
     graph2 = [[3, 1], [4, 6, 7, 2, 5], [4, 6, 3],
               [6, 4], [7, 6, 5], [6], [7], []]
 
-    # a = []
-    # a.append(1)
-    # a.append(10)
+    a = []
+    a.append(1)
 
-    # a = copy.deepcopy(graph)
-    # print(a)
+    b = [2, 3]
+
+    c = a + b
+
+    print(c)
 
     fish = haha.allPathsSourceTarget(graph1)
 
