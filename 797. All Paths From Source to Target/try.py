@@ -3,21 +3,18 @@ import copy
 
 class Solution(object):
     def allPathsSourceTarget(self, graph):
-        def bfs(rverse_graph, start, end):
+        def bfs(rverse_graph, vertex, start, end):
 
             size = start + 1
             queue = []
             result = []
-            vertex = []
-
-            for i in range(size):
-                vertex.append([])
-            vertex[-1].append(start)
 
             queue.append(start)
 
             while (len(queue) > 0):
-                currentVertex = queue.pop(0)  # FIFS -> .pop(0)
+                # currentVertex = queue.pop(0)  # FIFS -> .pop(0)
+                currentVertex = queue.pop()  # FILS -> .pop(0)
+
                 print("currentVertex : %d" % currentVertex)
 
                 for neighbor in rverse_graph[currentVertex]:
@@ -25,9 +22,7 @@ class Solution(object):
 
                     queue.append(neighbor)
                     tmp = copy.deepcopy(vertex[currentVertex])
-                    print(tmp)
                     tmp.insert(0, neighbor)
-                    print(tmp)
 
                     if neighbor == end:
                         result.append(tmp)
@@ -36,6 +31,8 @@ class Solution(object):
                         vertex[neighbor] = copy.deepcopy(tmp)
 
                 vertex[currentVertex] = []  # clear
+                if currentVertex != start:
+                    vertex[currentVertex].append(currentVertex)
                 vertex[currentVertex].append(start)
 
                 print("result :")
@@ -59,19 +56,30 @@ class Solution(object):
         for i in range(size):
             for j in graph[i]:
                 rev_dir_graph[j].append(i)
+        vertex = []
 
+        for i in range(size):
+            vertex.append([])
+        vertex[-1].append(size-1)
+
+        print("vertex :")
+        print(vertex)
+        print("rev_dir_graph :")
         print(rev_dir_graph)
 
-        output = bfs(rev_dir_graph, (size-1), 0)
+        output = bfs(rev_dir_graph, vertex, (size-1), 0)
 
-        print(output)
+        # print(output)
 
         return output
 
 
 if __name__ == '__main__':
     haha = Solution()
-    graph = [[4, 3, 1], [3, 2, 4], [3], [4], []]
+    graph1 = [[4, 3, 1], [3, 2, 4], [3], [4], []]
+
+    graph2 = [[3, 1], [4, 6, 7, 2, 5], [4, 6, 3],
+              [6, 4], [7, 6, 5], [6], [7], []]
 
     # a = []
     # a.append(1)
@@ -80,6 +88,7 @@ if __name__ == '__main__':
     # a = copy.deepcopy(graph)
     # print(a)
 
-    fish = haha.allPathsSourceTarget(graph)
+    fish = haha.allPathsSourceTarget(graph1)
 
+    print("answer : \n\n")
     print(fish)
