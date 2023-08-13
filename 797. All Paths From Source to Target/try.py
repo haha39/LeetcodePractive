@@ -19,6 +19,10 @@ class Solution(object):
 
                 for neighbor in rverse_graph[currentVertex]:
                     print("neighbor : %d" % neighbor)
+                    tmp_result = bfs(rev_dir_graph, vertex, start, end)
+                    if tmp_result != [[]]:
+                        for i in tmp_result:
+                            result.append(i)
 
                     queue.append(neighbor)
                     tmp = copy.deepcopy(vertex[currentVertex])
@@ -26,8 +30,8 @@ class Solution(object):
 
                     if neighbor == end:
                         result.append(tmp)
-
                     else:
+
                         vertex[neighbor] = copy.deepcopy(tmp)
 
                 vertex[currentVertex] = []  # clear
