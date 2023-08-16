@@ -4,18 +4,27 @@ import copy
 class Solution(object):
     def allPathsSourceTarget(self, graph):
 
-        def dfs(start, path):
+        def dfs(current, path):
+            print(current)
+            print(path)
 
-            if graph[start] == size-1:  # end node
-                result.append(path+start)
+            if current == end:  # end dfs()
+                result.append(path)
+                print("ya")
             else:
-                for i in range(len(graph[start])):
-                    path = path + start
+                size = len(graph[current])
+                tmp = graph[current]
+
+                for i in range(size):
+                    neighbor = tmp[i]
+                    dfs(neighbor, path + [neighbor])
 
         result = []
-        size = len(graph)
+        end = len(graph) - 1
 
         dfs(0, [0])
+
+        print(result)
 
         return result
 
@@ -31,7 +40,7 @@ if __name__ == '__main__':
     graph2 = [[3, 1], [4, 6, 7, 2, 5], [4, 6, 3],
               [6, 4], [7, 6, 5], [6], [7], []]
 
-    jojo = haha.allPathsSourceTarget(graph2)
+    jojo = haha.allPathsSourceTarget(graph1)
 
     print("answer : \n\n")
     print(jojo)
