@@ -4,11 +4,20 @@ import copy
 class Solution(object):
     def allPathsSourceTarget(self, graph):
 
-        def bfs(rev_dir_graph, start, end, path):
-            u = 1
+        def dfs(start, path):
 
-        x = 1
-        return 0
+            if graph[start] == size-1:  # end node
+                result.append(path+start)
+            else:
+                for i in range(len(graph[start])):
+                    path = path + start
+
+        result = []
+        size = len(graph)
+
+        dfs(0, [0])
+
+        return result
 
 
 if __name__ == '__main__':
