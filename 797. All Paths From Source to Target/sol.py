@@ -1,6 +1,3 @@
-import copy
-
-
 class Solution(object):
     def allPathsSourceTarget(self, graph):
         def dfs(current, path):
