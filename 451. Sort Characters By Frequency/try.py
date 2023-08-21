@@ -22,8 +22,11 @@ class Solution(object):
 
         print(tt)
 
-        for i in range(size):
-            tt[i]
+        for key, value in tt:
+            for i in range(value):
+                output.append(key)
+
+        return output
 
 
 if __name__ == '__main__':
