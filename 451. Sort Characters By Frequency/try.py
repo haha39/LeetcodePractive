@@ -6,7 +6,7 @@ class Solution(object):
         """
         map1 = {}
         size = len(s)
-        output = []
+        output = ""
 
         for i in range(size):
             if s[i] in map1:
@@ -24,7 +24,7 @@ class Solution(object):
 
         for key, value in tt:
             for i in range(value):
-                output.append(key)
+                output = output + key
 
         return output
 
