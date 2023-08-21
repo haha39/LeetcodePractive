@@ -16,11 +16,11 @@ class Solution(object):
             else:
                 map1.update({s[i]: 1})
 
-        print(map1)
+        # print(map1)
 
         tt = sorted(map1.items(), key=lambda x: x[1], reverse=True)
 
-        print(tt)
+        # print(tt)
 
         for key, value in tt:
             for i in range(value):
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     str2 = "cccaaa"
 
-    yeha = haha.frequencySort(str1)
+    yeha = haha.frequencySort(str2)
 
     print("answer : \n\n")
     print(yeha)
