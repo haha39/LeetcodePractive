@@ -4,25 +4,25 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        map1 = {}
+        dict = {}
         size = len(s)
         output = ""
 
         for i in range(size):
-            if s[i] in map1:
-                ct = map1.get(s[i])
+            if s[i] in dict:
+                ct = dict.get(s[i])
                 ct = ct+1
-                map1.update({s[i]: ct})
+                dict.update({s[i]: ct})
             else:
-                map1.update({s[i]: 1})
+                dict.update({s[i]: 1})
 
-        # print(map1)
+        # print(dict)
 
-        sorted_map1 = sorted(map1.items(), key=lambda x: x[1], reverse=True)
+        sorted_dict = sorted(dict.items(), key=lambda x: x[1], reverse=True)
 
-        # print(sorted_map1)
+        # print(sorted_dict)
 
-        for key, value in sorted_map1:
+        for key, value in sorted_dict:
             for i in range(value):
                 output = output + key
 
