@@ -18,11 +18,11 @@ class Solution(object):
 
         # print(map1)
 
-        tt = sorted(map1.items(), key=lambda x: x[1], reverse=True)
+        sorted_map1 = sorted(map1.items(), key=lambda x: x[1], reverse=True)
 
-        # print(tt)
+        # print(sorted_map1)
 
-        for key, value in tt:
+        for key, value in sorted_map1:
             for i in range(value):
                 output = output + key
 
