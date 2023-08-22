@@ -9,27 +9,37 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        map1 = {}
+        dict = {}
         size = len(s)
         output = ""
 
         for i in range(size):
-            if s[i] in map1:
-                ct = map1.get(s[i])
+            if s[i] in dict:
+                ct = dict.get(s[i])
                 ct = ct+1
-                map1.update({s[i]: ct})
+                dict.update({s[i]: ct})
             else:
-                map1.update({s[i]: 1})
+                dict.update({s[i]: 1})
 
-        print(map1)
+        print(dict)
 
         bucket = []
 
-        for i in range(size):
+        for i in range(size+1):
             bucket.append([])
 
-        for i in range(size):
-            freq = map1[i]
+        for key, value in dict.items():
+            bucket[value].append(key)
+
+        print(bucket)
+
+        for freq in range(size, 0, -1):
+            num = len(bucket[freq])
+
+            if num != 0:
+                for j in range(num):
+                    for k in range(freq):
+                        output = output + bucket[freq][j]
 
         return output
 
@@ -38,9 +48,9 @@ if __name__ == '__main__':
     haha = Solution()
     str1 = "tree"
 
-    str2 = "cccaaa"
+    str2 = "eeeee"
 
-    yeha = haha.frequencySort(str1)
+    yeha = haha.frequencySort(str2)
 
     print("answer : \n\n")
     print(yeha)
