@@ -1,3 +1,8 @@
+'''
+dictionary + sorted
+'''
+
+
 class Solution(object):
     def frequencySort(self, s):
         """
