@@ -21,15 +21,7 @@ class Solution(object):
             else:
                 dict.update({s[i]: 1})
 
-        # print(dict)
-
-        sorted_dict = sorted(dict.items(), key=lambda x: x[1], reverse=True)
-
-        # print(sorted_dict)
-
-        for key, value in sorted_dict:
-            for i in range(value):
-                output = output + key
+        print(dict)
 
         return output
 
