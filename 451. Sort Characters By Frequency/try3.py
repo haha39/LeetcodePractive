@@ -3,7 +3,7 @@ heap / priority queue
 '''
 
 
-from heapq import heappush
+from heapq import heappop, heappush
 
 
 class Solution(object):
@@ -24,22 +24,21 @@ class Solution(object):
             else:
                 dict.update({s[i]: -1})
 
-        print(dict)
+        # print(dict)
 
         pq = []
         for key, value in dict.items():
             heappush(pq, (value, key))
 
-        print(pq)
+        # print(heappop(pq))
 
         len_pq = len(pq)
 
         for i in range(len_pq):
-            freq = pq[i][0]
+            freq, char = heappop(pq)
 
             for j in range(freq, 0, 1):
-                print(pq[i][1])
-                output = output + pq[i][1]
+                output = output + char
 
         return output
 
@@ -50,7 +49,9 @@ if __name__ == '__main__':
 
     str2 = "cccaaa"
 
-    yeha = haha.frequencySort(str1)
+    str3 = "raaeaedere"
 
-    print("answer : \n\n")
+    yeha = haha.frequencySort(str3)
+
+    print("answer : \n")
     print(yeha)
