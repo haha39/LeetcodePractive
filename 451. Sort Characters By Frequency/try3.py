@@ -34,6 +34,13 @@ class Solution(object):
 
         len_pq = len(pq)
 
+        for i in range(len_pq):
+            freq = pq[i][0]
+
+            for j in range(freq, 0, 1):
+                print(pq[i][1])
+                output = output + pq[i][1]
+
         return output
 
 
