@@ -35,6 +35,7 @@ class Solution(object):
         len_pq = len(pq)
 
         for i in range(len_pq):
+            # it's a heap!!!!! you have to use 'pop' instead of [0],[1],[2]
             freq, char = heappop(pq)
 
             for j in range(freq, 0, 1):
