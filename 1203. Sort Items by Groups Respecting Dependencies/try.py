@@ -7,6 +7,10 @@ class Solution(object):
         :type beforeItems: List[List[int]]
         :rtype: List[int]
         """
+        def topologicalSort():
+            x = 2
+
+        aa = 99
 
 
 if __name__ == '__main__':
