@@ -11,6 +11,14 @@ class Solution(object):
             x = 2
 
         aa = 99
+        output = []
+        indegree = []
+        for i in range(n):
+            indegree.append(len(beforeItems[i]))
+
+        print(indegree)
+
+        return output
 
 
 if __name__ == '__main__':
@@ -30,4 +38,5 @@ if __name__ == '__main__':
     group2 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems2 = [[], [6], [5], [6], [3], [], [4], []]
 
-    godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
+    # godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
+    # print(godspeed)
