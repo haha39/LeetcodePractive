@@ -16,7 +16,17 @@ class Solution(object):
         for i in range(n):
             indegree.append(len(beforeItems[i]))
 
+        afterItem = []
+        for i in range(n):
+            afterItem.append([])
+
+        for i in range(n):
+            if beforeItems[i] != []:
+                for j in beforeItems[i]:
+                    afterItem[j].append(i)
+
         print(indegree)
+        print(afterItem)
 
         return output
 
