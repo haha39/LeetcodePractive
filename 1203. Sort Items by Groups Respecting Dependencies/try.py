@@ -15,7 +15,8 @@ class Solution(object):
         :rtype: List[int]
         """
         def topologicalSort():
-            x = 2
+            # step 1
+            c = 0
 
         indegree = []
         afterItem = []
@@ -48,6 +49,8 @@ class Solution(object):
         print(afterItem)
         print(dict_group)
 
+        topologicalSort()
+
         return output
 
 
@@ -60,6 +63,8 @@ if __name__ == '__main__':
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
+
+    print("output1 : \n")
     print(nas)
 
     # input2
