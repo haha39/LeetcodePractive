@@ -17,13 +17,16 @@ class Solution(object):
         def topologicalSort():
             x = 2
 
-        aa = 99
-        output = []
         indegree = []
+        afterItem = []
+        dict_group = {}
+        output = []
+
+        # indegree
         for i in range(n):
             indegree.append(len(beforeItems[i]))
 
-        afterItem = []
+        # afterItem
         for i in range(n):
             afterItem.append([])
 
@@ -32,8 +35,18 @@ class Solution(object):
                 for j in beforeItems[i]:
                     afterItem[j].append(i)
 
+        # dict_group
+        for i in range(-1, m, 1):
+            dict_group.update({i: []})
+
+        for i in range(n):
+            tmp = dict_group.get(group[i])
+            tmp.append(i)
+            dict_group.update({group[i]: tmp})
+
         print(indegree)
         print(afterItem)
+        print(dict_group)
 
         return output
 
