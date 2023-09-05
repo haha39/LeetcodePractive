@@ -14,11 +14,6 @@ class Solution(object):
 
             i = 0
             for neighbor in rev_dir_graph[start]:
-                # print(i)
-
-                # print("in bfs(), neighbor is : %d" % neighbor)
-                # print("tmp : ")
-                # print(tmp)
 
                 if neighbor != 0:
 
@@ -26,28 +21,15 @@ class Solution(object):
                     output = bfs(rev_dir_graph, neighbor, end, tmp[i])
                     print(output)
                     path = copy.deepcopy(a)
-                    # print(a)
                     len0 = len(output)
                     tmp[i] = output[0]
 
                     for i in range(len0-1):
                         tmp.append(output[i+1])
-
-                    # for i in range(len(output)):
-                    # tmp[i] = output[0]
-                    # print("????????")
-                    # print(tmp)
                 else:
-                    # path.insert(0, 0)
                     tmp[i] = [0] + tmp[i]
 
                 i = i + 1
-
-                # print("hahahahaha : %d" % neighbor)
-                # print(tmp)
-
-            # print("tmp")
-            # print(tmp)
 
             return tmp
 
@@ -93,8 +75,6 @@ class Solution(object):
             print(all_path)
             print("\n")
 
-        # print(output)
-
         return all_path
 
 
@@ -109,7 +89,7 @@ if __name__ == '__main__':
     graph2 = [[3, 1], [4, 6, 7, 2, 5], [4, 6, 3],
               [6, 4], [7, 6, 5], [6], [7], []]
 
-    jojo = haha.allPathsSourceTarget(graph2)
+    jojo = haha.allPathsSourceTarget(graph0)
 
     print("answer : \n\n")
     print(jojo)
