@@ -1,3 +1,10 @@
+'''
+1. assmble by group
+2. iterably check which group can be all done
+3. while one item is done, using dictionary to help its afterItems
+'''
+
+
 class Solution(object):
     def sortItems(self, n, m, group, beforeItems):
         """
