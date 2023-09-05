@@ -15,8 +15,7 @@ class Solution(object):
         :rtype: List[int]
         """
         def topologicalSort():
-            # step 1
-            c = 0
+            queue = []
 
         indegree = []
         afterItem = []
