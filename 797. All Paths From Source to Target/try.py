@@ -27,7 +27,6 @@ class Solution(object):
                     if neighbor == end:
                         result.append(tmp)
                     else:
-
                         vertex[neighbor] = copy.deepcopy(tmp)
 
                 vertex[currentVertex] = []  # clear
