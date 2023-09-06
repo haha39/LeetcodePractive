@@ -17,6 +17,16 @@ class Solution(object):
         def topologicalSort():
             queue = []
 
+            queue.append("hehe")
+
+            while len(queue) != 0:
+
+                for i in range(-1, m, 1):
+                    print(i)
+
+                queue.clear()
+
+        # initial
         indegree = []
         afterItem = []
         dict_group = {}
@@ -50,7 +60,10 @@ class Solution(object):
 
         topologicalSort()
 
-        return output
+        if len(output) != n:
+            return []
+        else:
+            return output
 
 
 if __name__ == '__main__':
