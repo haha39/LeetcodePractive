@@ -17,11 +17,18 @@ class Solution(object):
         def topologicalSort():
             queue = []
 
-            queue.append("hehe")
+            # indegree
+            for i in range(n):
+                if beforeItems[i] == []:
+                    queue.append(i)
+
+            print(queue)
 
             while len(queue) != 0:
 
-                for i in range(-1, m, 1):
+                for i in range(len(dict_group)):
+                    #
+
                     print(i)
 
                 queue.clear()
@@ -31,10 +38,6 @@ class Solution(object):
         afterItem = []
         dict_group = {}
         output = []
-
-        # indegree
-        for i in range(n):
-            indegree.append(len(beforeItems[i]))
 
         # afterItem
         for i in range(n):
@@ -54,7 +57,6 @@ class Solution(object):
             tmp.append(i)
             dict_group.update({group[i]: tmp})
 
-        print(indegree)
         print(afterItem)
         print(dict_group)
 
