@@ -26,28 +26,44 @@ class Solution(object):
             print(queue)
 
             while len(queue) != 0:
-                tmp_queue = []
 
                 current = queue.pop(0)
-                print(current)
+                print("current : %d" % current)
 
                 current_group = group[current]
-                print(current_group)
+                print("current_group : %d" % current_group)
 
                 if current_group == -1:
                     output.append(current)
 
                     for after in range(len(afterItem[current])):
                         indegree[after] -= 1
-                        print(after)
+                        # print(after)
+                else:
+                    tmp_queue = []
+                    tmp_output = []
+                    members = dict_group[current_group]
+                    print(members)
 
-            #     else:
-            #         members = dict_group[current_group]
-            #         print(members)
-            #         #
-            #         for i in members:
-            #             if beforeItems[i] == []:
-            #                 tmp_queue.append(i)
+                    for after in range(len(afterItem[current])):
+                        indegree[after] -= 1
+                        # print(after)
+
+                    tmp_output.append(current)
+                    members.remove(current)
+
+                    print(members)
+                    #
+                    for i in members:
+                        if indegree[i] == 0:
+                            tmp_queue.append(i)
+
+                    while len(tmp_queue != 0):
+                        tmp = tmp_queue.pop()
+                        tmp_output.append(tmp)
+
+                        for i in range(len(afterItem[tmp])):
+                            indegree[i] -= 1
 
         # initial
         indegree = []
