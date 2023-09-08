@@ -28,6 +28,8 @@ class Solution(object):
             print(queue)
 
             while len(queue) != 0:
+                print("in queue :")
+                print(queue)
 
                 current = queue.pop(0)
                 print("current : %d" % current)
@@ -40,7 +42,8 @@ class Solution(object):
 
                     for after in range(len(afterItem[current])):
                         indegree[after] -= 1
-                        # print(after)
+                        if indegree[after] == 0:
+                            queue.append(after)
                 else:
                     tmp_queue = []
                     tmp_output = []
@@ -50,7 +53,6 @@ class Solution(object):
 
                     for after in range(len(afterItem[current])):
                         tmp_indegree[after] -= 1
-                        # print(after)
 
                     tmp_output.append(current)
                     members.remove(current)
@@ -68,10 +70,16 @@ class Solution(object):
                         for i in range(len(afterItem[tmp])):
                             tmp_indegree[i] -= 1
 
+                            if tmp_indegree[i] == 0:
+                                tmp_queue.append(i)
+                                tmp_output.append(i)
+                                members.remove(i)
                     # tmp_output
 
                     # tmp_indegree
                     indegree = copy.deepcopy(tmp_indegree)
+
+                # big remove from queue
 
         # initial
         indegree = []
