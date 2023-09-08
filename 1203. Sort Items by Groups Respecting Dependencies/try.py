@@ -18,9 +18,9 @@ class Solution(object):
             queue = []
 
             # indegree
-            for group in range(-1, m, 1):
-                for item in dict_group[group]:
-                    if beforeItems[item] == []:
+            for g in range(-1, m, 1):
+                for item in dict_group[g]:
+                    if indegree[item] == 0:
                         queue.append(item)
 
             print(queue)
@@ -28,18 +28,36 @@ class Solution(object):
             while len(queue) != 0:
                 tmp_queue = []
 
-                for i in range(len(dict_group)):
-                    #
+                current = queue.pop(0)
+                print(current)
 
-                    print(i)
+                current_group = group[current]
+                print(current_group)
 
-                queue.clear()
+                if current_group == -1:
+                    output.append(current)
+
+                    for after in range(len(afterItem[current])):
+                        indegree[after] -= 1
+                        print(after)
+
+            #     else:
+            #         members = dict_group[current_group]
+            #         print(members)
+            #         #
+            #         for i in members:
+            #             if beforeItems[i] == []:
+            #                 tmp_queue.append(i)
 
         # initial
         indegree = []
         afterItem = []
         dict_group = {}
         output = []
+
+        # indegree
+        for i in range(n):
+            indegree.append(len(beforeItems[i]))
 
         # afterItem
         for i in range(n):
@@ -59,10 +77,13 @@ class Solution(object):
             tmp.append(i)
             dict_group.update({group[i]: tmp})
 
+        print(indegree)
         print(afterItem)
         print(dict_group)
 
         topologicalSort()
+
+        print(output)
 
         if len(output) != n:
             return []
