@@ -1,3 +1,5 @@
+import copy
+
 '''
 1. put item with 0 indegree in queue
 2. use bfs to check if we can solve the whole group altogather
@@ -42,11 +44,12 @@ class Solution(object):
                 else:
                     tmp_queue = []
                     tmp_output = []
+                    tmp_indegree = copy.deepcopy(indegree)
                     members = dict_group[current_group]
                     print(members)
 
                     for after in range(len(afterItem[current])):
-                        indegree[after] -= 1
+                        tmp_indegree[after] -= 1
                         # print(after)
 
                     tmp_output.append(current)
@@ -55,7 +58,7 @@ class Solution(object):
                     print(members)
                     #
                     for i in members:
-                        if indegree[i] == 0:
+                        if tmp_indegree[i] == 0:
                             tmp_queue.append(i)
 
                     while len(tmp_queue != 0):
@@ -63,7 +66,12 @@ class Solution(object):
                         tmp_output.append(tmp)
 
                         for i in range(len(afterItem[tmp])):
-                            indegree[i] -= 1
+                            tmp_indegree[i] -= 1
+
+                    # tmp_output
+
+                    # tmp_indegree
+                    indegree = copy.deepcopy(tmp_indegree)
 
         # initial
         indegree = []
