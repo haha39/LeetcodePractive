@@ -1,7 +1,7 @@
 '''
-1. assmble by group
-2. iterably check which group can be all done
-3. while one item is done, using dictionary to help its afterItems
+1. put item with 0 indegree in queue
+2. use bfs to check if we can solve the whole group altogather
+3. 
 '''
 
 
@@ -18,13 +18,15 @@ class Solution(object):
             queue = []
 
             # indegree
-            for i in range(n):
-                if beforeItems[i] == []:
-                    queue.append(i)
+            for group in range(-1, m, 1):
+                for item in dict_group[group]:
+                    if beforeItems[item] == []:
+                        queue.append(item)
 
             print(queue)
 
             while len(queue) != 0:
+                tmp_queue = []
 
                 for i in range(len(dict_group)):
                     #
@@ -75,6 +77,9 @@ if __name__ == '__main__':
     m1 = 2
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
+
+    print(group1)
+    print(beforeItems1)
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
