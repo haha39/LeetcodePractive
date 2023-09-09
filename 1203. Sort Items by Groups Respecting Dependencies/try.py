@@ -63,17 +63,23 @@ class Solution(object):
                         if tmp_indegree[i] == 0:
                             tmp_queue.append(i)
 
-                    while len(tmp_queue != 0):
-                        tmp = tmp_queue.pop()
-                        tmp_output.append(tmp)
+                    # while len(tmp_queue != 0):
+                    #     tmp = tmp_queue.pop()
+                    #     tmp_output.append(tmp)
 
-                        for i in range(len(afterItem[tmp])):
-                            tmp_indegree[i] -= 1
+                    #     for i in range(len(afterItem[tmp])):
+                    #         tmp_indegree[i] -= 1
 
-                            if tmp_indegree[i] == 0:
-                                tmp_queue.append(i)
-                                tmp_output.append(i)
-                                members.remove(i)
+                    #         if tmp_indegree[i] == 0:
+                    #             tmp_queue.append(i)
+                    #             tmp_output.append(i)
+                    #             members.remove(i)
+                    #
+                    #
+                    #
+                    #
+                    #
+
                     # tmp_output
 
                     # tmp_indegree
