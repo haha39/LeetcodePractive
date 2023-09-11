@@ -19,6 +19,8 @@ class Solution(object):
         def topologicalSort():
             queue = []
 
+            tmp_indegree = copy.deepcopy(indegree)
+
             # indegree
             for i in range(n):
                 print(indegree[i])
@@ -51,7 +53,7 @@ class Solution(object):
                 else:
                     tmp_queue = []
                     tmp_output = []
-                    tmp_indegree = copy.deepcopy(indegree)
+                    # tmp_indegree = copy.deepcopy(indegree)
                     members = dict_group[current_group]
                     print(members)
 
