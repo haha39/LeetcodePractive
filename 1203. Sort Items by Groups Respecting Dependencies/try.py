@@ -20,10 +20,14 @@ class Solution(object):
             queue = []
 
             # indegree
-            for g in range(-1, m, 1):
-                for item in dict_group[g]:
-                    if indegree[item] == 0:
-                        queue.append(item)
+            for i in range(n):
+                print(indegree[i])
+            # for g in range(-1, m, 1):
+            #     for item in dict_group[g]:
+            #         print("%d\t%d" % (item, indegree[item]))
+
+#                    if indegree[item] == 0:
+#                        queue.append(item)
 
             print(queue)
 
