@@ -16,23 +16,24 @@ class Solution(object):
         :type beforeItems: List[List[int]]
         :rtype: List[int]
         """
+
         def topologicalSort():
             queue = []
 
-            tmp_indegree = copy.deepcopy(indegree)
+            # tmp_indegree = copy.deepcopy(indegree)
 
             # indegree
-            for i in range(n):
-                print(indegree[i])
-            # for g in range(-1, m, 1):
-            #     for item in dict_group[g]:
-            #         print("%d\t%d" % (item, indegree[item]))
+            # for i in range(n):
+            #     print(indegree[i])
+            for g in range(-1, m, 1):
+                for item in dict_group[g]:
+                    print("%d\t%d" % (item, indegree[item]))
 
-#                    if indegree[item] == 0:
-#                        queue.append(item)
+                    if indegree[item] == 0:
+                        queue.append(item)
 
             print(queue)
-
+            '''
             while len(queue) != 0:
                 print("in queue :")
                 print(queue)
@@ -53,7 +54,7 @@ class Solution(object):
                 else:
                     tmp_queue = []
                     tmp_output = []
-                    # tmp_indegree = copy.deepcopy(indegree)
+                    tmp_indegree = copy.deepcopy(indegree)
                     members = dict_group[current_group]
                     print(members)
 
@@ -92,12 +93,12 @@ class Solution(object):
                     indegree = copy.deepcopy(tmp_indegree)
 
                 # big remove from queue
-
+            '''
         # initial
-        indegree = []
         afterItem = []
         dict_group = {}
         output = []
+        indegree = []
 
         # indegree
         for i in range(n):
