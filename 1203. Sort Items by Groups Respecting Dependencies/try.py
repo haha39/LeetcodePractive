@@ -28,12 +28,11 @@ class Solution(object):
             for g in range(-1, m, 1):
                 for item in dict_group[g]:
                     print("%d\t%d" % (item, indegree[item]))
-
                     if indegree[item] == 0:
                         queue.append(item)
 
-            print(queue)
-            '''
+            # print(queue)
+
             while len(queue) != 0:
                 print("in queue :")
                 print(queue)
@@ -51,6 +50,12 @@ class Solution(object):
                         indegree[after] -= 1
                         if indegree[after] == 0:
                             queue.append(after)
+
+                    print("no group : ")
+                    print(output)
+                    print(indegree)
+                    print(queue)
+
                 else:
                     tmp_queue = []
                     tmp_output = []
@@ -65,6 +70,7 @@ class Solution(object):
                     members.remove(current)
 
                     print(members)
+                    '''
                     #
                     for i in members:
                         if tmp_indegree[i] == 0:
@@ -128,6 +134,7 @@ class Solution(object):
 
         topologicalSort()
 
+        print("temp output")
         print(output)
 
         if len(output) != n:
