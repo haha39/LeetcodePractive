@@ -46,7 +46,8 @@ class Solution(object):
                 if current_group == -1:
                     output.append(current)
 
-                    for after in range(len(afterItem[current])):
+                    for after in afterItem[current]:
+                        print(after)
                         indegree[after] -= 1
                         if indegree[after] == 0:
                             queue.append(after)
@@ -61,15 +62,20 @@ class Solution(object):
                     tmp_output = []
                     tmp_indegree = copy.deepcopy(indegree)
                     members = dict_group[current_group]
+                    print("after members :")
                     print(members)
 
-                    for after in range(len(afterItem[current])):
+                    for after in afterItem[current]:
                         tmp_indegree[after] -= 1
+                        print(after)
+                        print(tmp_indegree[after])
 
                     tmp_output.append(current)
                     members.remove(current)
 
+                    print("now members :")
                     print(members)
+
                     '''
                     #
                     for i in members:
@@ -91,7 +97,7 @@ class Solution(object):
                     #
                     #
                     #
-                    #
+                    # 失敗的話要加回queue
 
                     # tmp_output
 
