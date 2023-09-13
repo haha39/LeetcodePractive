@@ -67,8 +67,14 @@ class Solution(object):
 
                     for after in afterItem[current]:
                         tmp_indegree[after] -= 1
-                        print(after)
-                        print(tmp_indegree[after])
+
+                        if tmp_indegree[after] == 0:
+                            tmp_queue.append(after)
+
+                        print("after : %d" % after)
+                        print("tmp_indegree[%d] : %d" %
+                              (after, tmp_indegree[after]))
+                        print(tmp_queue)
 
                     tmp_output.append(current)
                     members.remove(current)
@@ -77,11 +83,6 @@ class Solution(object):
                     print(members)
 
                     '''
-                    #
-                    for i in members:
-                        if tmp_indegree[i] == 0:
-                            tmp_queue.append(i)
-
                     # while len(tmp_queue != 0):
                     #     tmp = tmp_queue.pop()
                     #     tmp_output.append(tmp)
