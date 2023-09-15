@@ -98,7 +98,9 @@ class Solution(object):
                     #
                     #
                     #
-                    # 失敗的話要加回queue
+                    # 失敗的話要加回queue??
+                    # if len(members) != 0:
+                    #       queue.append(current)    
 
                     # tmp_output
 
