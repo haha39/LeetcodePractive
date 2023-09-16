@@ -57,7 +57,7 @@ class Solution(object):
                     print(indegree)
                     print(queue)
 
-                else:
+                else:  # check()
                     tmp_queue = []
                     tmp_output = []
                     tmp_indegree = copy.deepcopy(indegree)
