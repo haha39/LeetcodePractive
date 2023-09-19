@@ -83,21 +83,22 @@ class Solution(object):
                     print(members)
 
                     '''
-                    # while len(tmp_queue != 0):
-                    #     tmp = tmp_queue.pop()
-                    #     tmp_output.append(tmp)
+                    while len(tmp_queue != 0):
+                        tmp = tmp_queue.pop()
+                        tmp_output.append(tmp)
 
-                    #     for i in range(len(afterItem[tmp])):
-                    #         tmp_indegree[i] -= 1
+                        for i in afterItem[tmp]:
+                            tmp_indegree[i] -= 1
 
-                    #         if tmp_indegree[i] == 0:
-                    #             tmp_queue.append(i)
-                    #             tmp_output.append(i)
-                    #             members.remove(i)
-                    #
-                    #
-                    #
-                    #
+                            if tmp_indegree[i] == 0:
+                                tmp_queue.append(i)
+                                tmp_output.append(i)
+                                members.remove(i)
+
+                        print(tmp_queue)
+                        print(tmp_output)
+                        print(members)
+
                     # 失敗的話要加回queue??
                     # if len(members) != 0:
                     #       queue.append(current)    
