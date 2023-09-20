@@ -20,11 +20,6 @@ class Solution(object):
         def topologicalSort():
             queue = []
 
-            # tmp_indegree = copy.deepcopy(indegree)
-
-            # indegree
-            # for i in range(n):
-            #     print(indegree[i])
             for g in range(-1, m, 1):
                 for item in dict_group[g]:
                     print("%d\t%d" % (item, indegree[item]))
@@ -87,23 +82,23 @@ class Solution(object):
                         tmp = tmp_queue.pop()
                         tmp_output.append(tmp)
 
-                        for i in afterItem[tmp]:
-                            tmp_indegree[i] -= 1
+                        for after in afterItem[tmp]:
+                            tmp_indegree[after] -= 1
 
-                            if tmp_indegree[i] == 0:
-                                tmp_queue.append(i)
-                                tmp_output.append(i)
-                                members.remove(i)
+                            if tmp_indegree[after] == 0:
+                                tmp_queue.append(after)
+                                tmp_output.append(after)
+                                members.remove(after)
 
                         print(tmp_queue)
                         print(tmp_output)
                         print(members)
 
                     # 失敗的話要加回queue??
-                    # if len(members) != 0:
-                    #       queue.append(current)    
-
-                    # tmp_output
+                    if len(members) != 0:
+                        queue.append(current)   
+                    eles:
+                    output = output + tmp_output 
 
                     # tmp_indegree
                     indegree = copy.deepcopy(tmp_indegree)
