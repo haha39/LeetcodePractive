@@ -76,9 +76,8 @@ class Solution(object):
 
                     print("now members :")
                     print(members)
-
-                    '''
-                    while len(tmp_queue != 0):
+                '''
+                    while len(tmp_queue) != 0:
                         tmp = tmp_queue.pop()
                         tmp_output.append(tmp)
 
@@ -96,15 +95,15 @@ class Solution(object):
 
                     # 失敗的話要加回queue??
                     if len(members) != 0:
-                        queue.append(current)   
-                    eles:
-                    output = output + tmp_output 
+                        queue.append(current)
+                    else:
+                        output = output + tmp_output
 
                     # tmp_indegree
                     indegree = copy.deepcopy(tmp_indegree)
 
                 # big remove from queue
-            '''
+                '''
         # initial
         afterItem = []
         dict_group = {}
