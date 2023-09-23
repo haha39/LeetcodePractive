@@ -76,7 +76,7 @@ class Solution(object):
 
                     print("now members :")
                     print(members)
-                '''
+
                     while len(tmp_queue) != 0:
                         tmp = tmp_queue.pop()
                         tmp_output.append(tmp)
@@ -92,8 +92,8 @@ class Solution(object):
                         print(tmp_queue)
                         print(tmp_output)
                         print(members)
-
-                    # 失敗的話要加回queue??
+                '''
+                    # check if group in current be all add in tmp_output
                     if len(members) != 0:
                         queue.append(current)
                     else:
