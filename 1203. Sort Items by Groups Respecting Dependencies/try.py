@@ -38,37 +38,34 @@ class Solution(object):
                 current_group = group[current]
                 print("current_group : %d" % current_group)
 
+                for after in afterItem[current]:
+                    print(after)
+                    indegree[after] -= 1
+                    if indegree[after] == 0:
+                        queue.append(after)
+
+                print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                print(output)
+                print(indegree)
+                print(queue)
+
                 if current_group == -1:
                     output.append(current)
-
-                    for after in afterItem[current]:
-                        print(after)
-                        indegree[after] -= 1
-                        if indegree[after] == 0:
-                            queue.append(after)
-
-                    print("no group : ")
-                    print(output)
-                    print(indegree)
-                    print(queue)
-
                 else:  # check()
                     tmp_queue = []
                     tmp_output = []
                     tmp_indegree = copy.deepcopy(indegree)
                     members = dict_group[current_group]
-                    print("after members :")
+                    print("same members :")
                     print(members)
 
-                    for after in afterItem[current]:
-                        tmp_indegree[after] -= 1
+                    for m in members:
+                        if tmp_indegree[m] == 0:
+                            tmp_queue.append(m)
 
-                        if tmp_indegree[after] == 0:
-                            tmp_queue.append(after)
-
-                        print("after : %d" % after)
+                        print("ok member : %d" % m)
                         print("tmp_indegree[%d] : %d" %
-                              (after, tmp_indegree[after]))
+                              (m, tmp_indegree[m]))
                         print(tmp_queue)
 
                     tmp_output.append(current)
@@ -89,8 +86,11 @@ class Solution(object):
                                 tmp_output.append(after)
                                 members.remove(after)
 
+                        print("tmp_queue")
                         print(tmp_queue)
+                        print("tmp_output")
                         print(tmp_output)
+                        print("members")
                         print(members)
                 '''
                     # check if group in current be all add in tmp_output
