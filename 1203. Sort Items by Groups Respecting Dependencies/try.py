@@ -55,36 +55,39 @@ class Solution(object):
                     tmp_queue = []
                     tmp_output = []
                     tmp_indegree = copy.deepcopy(indegree)
-                    members = dict_group[current_group]
+                    members = copy.deepcopy(dict_group[current_group])
+                    members.remove(current)
+
                     print("same members :")
                     print(members)
 
-                    for m in members:
-                        if tmp_indegree[m] == 0:
-                            tmp_queue.append(m)
+                    for mem in members:
+                        if tmp_indegree[mem] == 0:
+                            tmp_queue.append(mem)
 
-                        print("ok member : %d" % m)
+                        print("ok member : %d" % mem)
                         print("tmp_indegree[%d] : %d" %
-                              (m, tmp_indegree[m]))
+                              (mem, tmp_indegree[mem]))
                         print(tmp_queue)
 
                     tmp_output.append(current)
-                    members.remove(current)
 
                     print("now members :")
                     print(members)
+                    print("now tmp_queue :")
+                    print(tmp_queue)
 
                     while len(tmp_queue) != 0:
-                        tmp = tmp_queue.pop()
-                        tmp_output.append(tmp)
+                        tmp_current = tmp_queue.pop()
+                        tmp_output.append(tmp_current)
+                        members.remove(tmp_current)
 
-                        for after in afterItem[tmp]:
+                        for after in afterItem[tmp_current]:
                             tmp_indegree[after] -= 1
 
                             if tmp_indegree[after] == 0:
                                 tmp_queue.append(after)
                                 tmp_output.append(after)
-                                members.remove(after)
 
                         print("tmp_queue")
                         print(tmp_queue)
