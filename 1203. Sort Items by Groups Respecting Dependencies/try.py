@@ -158,13 +158,12 @@ if __name__ == '__main__':
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
 
-    print(group1)
-    print(beforeItems1)
-
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
     print("output1 : \n")
     print(nas)
+    print(group1)
+    print(beforeItems1)
 
     # input2
     n2 = 8
