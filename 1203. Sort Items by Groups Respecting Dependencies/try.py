@@ -87,7 +87,6 @@ class Solution(object):
 
                             if tmp_indegree[after] == 0:
                                 tmp_queue.append(after)
-                                tmp_output.append(after)
 
                         print("tmp_queue")
                         print(tmp_queue)
@@ -102,10 +101,12 @@ class Solution(object):
                     else:
                         output = output + tmp_output
 
-                    # tmp_indegree
-                    indegree = copy.deepcopy(tmp_indegree)
+                        # tmp_indegree
+                        indegree = copy.deepcopy(tmp_indegree)
 
-                # big remove from queue
+                        # big remove from queue
+                        for ok in range(len(tmp_output)):
+                            queue.remove(ok)
                 '''
         # initial
         afterItem = []
