@@ -17,8 +17,9 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        def topologicalSort():
+        def topologicalSort(indegree):
             queue = []
+            output = []
 
             for g in range(-1, m, 1):
                 for item in dict_group[g]:
@@ -94,7 +95,7 @@ class Solution(object):
                         print(tmp_output)
                         print("members")
                         print(members)
-                '''
+
                     # check if group in current be all add in tmp_output
                     if len(members) != 0:
                         queue.append(current)
@@ -107,11 +108,13 @@ class Solution(object):
                         # big remove from queue
                         for ok in range(len(tmp_output)):
                             queue.remove(ok)
-                '''
+                        print(queue)
+                        print(tmp_output)
+
         # initial
         afterItem = []
         dict_group = {}
-        output = []
+
         indegree = []
 
         # indegree
@@ -140,15 +143,15 @@ class Solution(object):
         print(afterItem)
         print(dict_group)
 
-        topologicalSort()
+        ans = topologicalSort(indegree)
 
         print("temp output")
-        print(output)
+        print(ans)
 
-        if len(output) != n:
+        if len(ans) != n:
             return []
         else:
-            return output
+            return ans
 
 
 if __name__ == '__main__':
