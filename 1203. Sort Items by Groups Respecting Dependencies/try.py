@@ -96,20 +96,24 @@ class Solution(object):
                         print("members")
                         print(members)
 
-                    # check if group in current be all add in tmp_output
+                    # # check if group in current be all add in tmp_output
                     if len(members) != 0:
                         queue.append(current)
-                    else:
-                        output = output + tmp_output
+                    # else:
+                    #     output = output + tmp_output
 
-                        # tmp_indegree
-                        indegree = copy.deepcopy(tmp_indegree)
+                    #     # tmp_indegree
+                    #     indegree = copy.deepcopy(tmp_indegree)
 
-                        # big remove from queue
-                        for ok in range(len(tmp_output)):
-                            queue.remove(ok)
-                        print(queue)
-                        print(tmp_output)
+                    #     # big remove from queue
+                    #     for ok in range(len(tmp_output)):
+                    #         queue.remove(ok)
+                    #     print(queue)
+                    #     print(tmp_output)
+                    #
+                    #
+
+            return output
 
         # initial
         afterItem = []
