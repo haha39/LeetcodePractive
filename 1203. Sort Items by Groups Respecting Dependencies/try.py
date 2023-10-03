@@ -30,7 +30,7 @@ class Solution(object):
             # print(queue)
 
             while len(queue) != 0:
-                print("in queue :")
+                print("\niiiiiiiiiiiiiiiiiiiiiiiiiiiiiiin queue :")
                 print(queue)
 
                 current = queue.pop(0)
@@ -39,19 +39,19 @@ class Solution(object):
                 current_group = group[current]
                 print("current_group : %d" % current_group)
 
-                for after in afterItem[current]:
-                    print(after)
-                    indegree[after] -= 1
-                    if indegree[after] == 0:
-                        queue.append(after)
-
-                print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-                print(output)
-                print(indegree)
-                print(queue)
-
                 if current_group == -1:
                     output.append(current)
+
+                    for after in afterItem[current]:
+                        print(after)
+                        indegree[after] -= 1
+                        if indegree[after] == 0:
+                            queue.append(after)
+
+                    print(output)
+                    print(indegree)
+                    print(queue)
+                    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                 else:  # check()
                     tmp_queue = []
                     tmp_output = []
@@ -63,13 +63,15 @@ class Solution(object):
                     print(members)
 
                     for mem in members:
-                        if tmp_indegree[mem] == 0:
-                            tmp_queue.append(mem)
+                        if current in beforeItems[mem]:
+                            tmp_indegree[mem] -= 1
+                            if tmp_indegree[mem] == 0:
+                                tmp_queue.append(mem)
 
-                        print("ok member : %d" % mem)
+                        print("member : %d" % mem)
                         print("tmp_indegree[%d] : %d" %
                               (mem, tmp_indegree[mem]))
-                        print(tmp_queue)
+                    print(tmp_queue)
 
                     tmp_output.append(current)
 
@@ -78,27 +80,27 @@ class Solution(object):
                     print("now tmp_queue :")
                     print(tmp_queue)
 
-                    while len(tmp_queue) != 0:
-                        tmp_current = tmp_queue.pop()
-                        tmp_output.append(tmp_current)
-                        members.remove(tmp_current)
+                #     while len(tmp_queue) != 0:
+                #         tmp_current = tmp_queue.pop()
+                #         tmp_output.append(tmp_current)
+                #         members.remove(tmp_current)
 
-                        for after in afterItem[tmp_current]:
-                            tmp_indegree[after] -= 1
+                #         for after in afterItem[tmp_current]:
+                #             tmp_indegree[after] -= 1
 
-                            if tmp_indegree[after] == 0:
-                                tmp_queue.append(after)
+                #             if tmp_indegree[after] == 0:
+                #                 tmp_queue.append(after)
 
-                        print("tmp_queue")
-                        print(tmp_queue)
-                        print("tmp_output")
-                        print(tmp_output)
-                        print("members")
-                        print(members)
+                #         print("tmp_queue")
+                #         print(tmp_queue)
+                #         print("tmp_output")
+                #         print(tmp_output)
+                #         print("members")
+                #         print(members)
 
-                    # # check if group in current be all add in tmp_output
-                    if len(members) != 0:
-                        queue.append(current)
+                #     # # check if group in current be all add in tmp_output
+                #     if len(members) != 0:
+                #         queue.append(current)
                     # else:
                     #     output = output + tmp_output
 
@@ -168,7 +170,7 @@ if __name__ == '__main__':
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
-    print("output1 : \n")
+    print("final output : \n")
     print(nas)
     print(group1)
     print(beforeItems1)
