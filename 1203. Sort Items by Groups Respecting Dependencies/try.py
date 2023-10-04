@@ -62,11 +62,10 @@ class Solution(object):
                     print("same members :")
                     print(members)
 
-                    for mem in members:
-                        if current in beforeItems[mem]:
-                            tmp_indegree[mem] -= 1
-                            if tmp_indegree[mem] == 0:
-                                tmp_queue.append(mem)
+                    for mem in afterItem[current]:
+                        tmp_indegree[mem] -= 1
+                        if tmp_indegree[mem] == 0 and mem in members:
+                            tmp_queue.append(mem)
 
                         print("member : %d" % mem)
                         print("tmp_indegree[%d] : %d" %
@@ -112,7 +111,12 @@ class Solution(object):
                     #         queue.remove(ok)
 
                         # help afterItem of member in the group
+                        for mem in tmp_output:
+                            for after in afterItem[mem]:
+                                if indegree[after] == 0 and after not in output:
+                                    queue.append(after)
 
+                        print(indegree)
                         print(queue)
                         print(output)
                     #
