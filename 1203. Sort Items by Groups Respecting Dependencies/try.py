@@ -51,7 +51,7 @@ class Solution(object):
                     print(output)
                     print(indegree)
                     print(queue)
-                    print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                    print("if enddddddddddddddddddddddddddddddddddd")
                 else:  # check()
                     tmp_queue = []
                     tmp_output = []
@@ -80,38 +80,41 @@ class Solution(object):
                     print("now tmp_queue :")
                     print(tmp_queue)
 
-                #     while len(tmp_queue) != 0:
-                #         tmp_current = tmp_queue.pop()
-                #         tmp_output.append(tmp_current)
-                #         members.remove(tmp_current)
+                    while len(tmp_queue) != 0:
+                        tmp_current = tmp_queue.pop()
+                        tmp_output.append(tmp_current)
+                        members.remove(tmp_current)
 
-                #         for after in afterItem[tmp_current]:
-                #             tmp_indegree[after] -= 1
+                        for after in afterItem[tmp_current]:
+                            tmp_indegree[after] -= 1
 
-                #             if tmp_indegree[after] == 0:
-                #                 tmp_queue.append(after)
+                            if tmp_indegree[after] == 0:
+                                tmp_queue.append(after)
 
-                #         print("tmp_queue")
-                #         print(tmp_queue)
-                #         print("tmp_output")
-                #         print(tmp_output)
-                #         print("members")
-                #         print(members)
+                        print("tmp_queue")
+                        print(tmp_queue)
+                        print("tmp_output")
+                        print(tmp_output)
+                        print("members")
+                        print(members)
 
-                #     # # check if group in current be all add in tmp_output
-                #     if len(members) != 0:
-                #         queue.append(current)
-                    # else:
-                    #     output = output + tmp_output
+                    # check if group in current be all add in tmp_output
+                    if len(members) != 0:
+                        queue.append(current)
+                    else:
+                        output = output + tmp_output
 
-                    #     # tmp_indegree
-                    #     indegree = copy.deepcopy(tmp_indegree)
+                        # tmp_indegree
+                        indegree = copy.deepcopy(tmp_indegree)
 
                     #     # big remove from queue
                     #     for ok in range(len(tmp_output)):
                     #         queue.remove(ok)
-                    #     print(queue)
-                    #     print(tmp_output)
+
+                        # help afterItem of member in the group
+
+                        print(queue)
+                        print(output)
                     #
                     #
 
@@ -151,7 +154,7 @@ class Solution(object):
 
         ans = topologicalSort(indegree)
 
-        print("temp output")
+        print("\ntemp output")
         print(ans)
 
         if len(ans) != n:
@@ -170,7 +173,7 @@ if __name__ == '__main__':
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
-    print("final output : \n")
+    print("\nfinal output : \n")
     print(nas)
     print(group1)
     print(beforeItems1)
