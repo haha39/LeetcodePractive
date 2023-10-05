@@ -106,10 +106,10 @@ class Solution(object):
                         # tmp_indegree
                         indegree = copy.deepcopy(tmp_indegree)
 
-                    #     # big remove from queue
-                    #     for ok in range(len(tmp_output)):
-                    #         queue.remove(ok)
-
+                        # big remove from queue
+                        for ok in tmp_output:
+                            if ok in queue:
+                                queue.remove(ok)
                         # help afterItem of member in the group
                         for mem in tmp_output:
                             for after in afterItem[mem]:
@@ -119,8 +119,6 @@ class Solution(object):
                         print(indegree)
                         print(queue)
                         print(output)
-                    #
-                    #
 
             return output
 
