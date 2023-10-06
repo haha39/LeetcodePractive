@@ -98,7 +98,7 @@ class Solution(object):
                         print(members)
 
                     # check if group in current be all add in tmp_output
-                    if len(members) != 0:
+                    if len(members) != 0 and len(queue) != 0use other condition:
                         queue.append(current)
                     else:
                         output = output + tmp_output
@@ -195,9 +195,22 @@ if __name__ == '__main__':
     group3 = [-1, 0, 0, -1]
     beforeItems3 = [[], [0], [1, 3], [2]]
 
-    RHCP = haha.sortItems(n3, m3, group3, beforeItems3)
+    # RHCP = haha.sortItems(n3, m3, group3, beforeItems3)
+
+    # print("\nfinal output : \n")
+    # print(RHCP)
+    # print(group3)
+    # print(beforeItems3)
+
+    # input4
+    n4 = 5
+    m4 = 3
+    group4 = [0, 0, 2, 1, 0]
+    beforeItems4 = [[3], [], [], [], [1, 3, 2]]
+
+    hangInTheAir = haha.sortItems(n4, m4, group4, beforeItems4)
 
     print("\nfinal output : \n")
-    print(RHCP)
-    print(group3)
-    print(beforeItems3)
+    print(hangInTheAir)
+    print(group4)
+    print(beforeItems4)
