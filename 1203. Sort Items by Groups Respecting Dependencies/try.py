@@ -173,12 +173,12 @@ if __name__ == '__main__':
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
 
-    nas = haha.sortItems(n1, m1, group1, beforeItems1)
+    # nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
-    print("\nfinal output : \n")
-    print(nas)
-    print(group1)
-    print(beforeItems1)
+    # print("\nfinal output : \n")
+    # print(nas)
+    # print(group1)
+    # print(beforeItems1)
 
     # input2
     n2 = 8
@@ -188,3 +188,16 @@ if __name__ == '__main__':
 
     # godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
     # print(godspeed)
+
+    # input3
+    n3 = 4
+    m3 = 1
+    group3 = [-1, 0, 0, -1]
+    beforeItems3 = [[], [0], [1, 3], [2]]
+
+    RHCP = haha.sortItems(n3, m3, group3, beforeItems3)
+
+    print("\nfinal output : \n")
+    print(RHCP)
+    print(group3)
+    print(beforeItems3)
