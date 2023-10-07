@@ -72,7 +72,6 @@ class Solution(object):
                         print("member : %d" % mem)
                         print("tmp_indegree[%d] : %d" %
                               (mem, tmp_indegree[mem]))
-                    print(tmp_queue)
 
                     tmp_output.append(current)
 
@@ -88,9 +87,9 @@ class Solution(object):
 
                         for after in afterItem[tmp_current]:
                             tmp_indegree[after] -= 1
-
-                            if tmp_indegree[after] == 0:
-                                tmp_queue.append(after)
+                        for mem in members:
+                            if tmp_indegree[mem] == 0:
+                                tmp_queue.append(mem)
 
                         print("tmp_queue")
                         print(tmp_queue)
@@ -189,6 +188,7 @@ if __name__ == '__main__':
     beforeItems2 = [[], [6], [5], [6], [3], [], [4], []]
 
     # godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
+    # print("\nfinal output : \n")
     # print(godspeed)
 
     # input3
@@ -216,3 +216,17 @@ if __name__ == '__main__':
     print(hangInTheAir)
     # print(group4)
     # print(beforeItems4)
+
+    # input5
+    n5 = 10
+    m5 = 4
+    group5 = [0, 1, 1, 2, 3, -1, 0, 0, 0, 1]
+    beforeItems5 = [[2, 5], [3, 5, 4, 6, 8, 7, 2],
+                    [7], [], [], [], [], [], [], []]
+
+    # johnL = haha.sortItems(n5, m5, group5, beforeItems5)
+
+    # print("\nfinal output : \n")
+    # print(johnL)
+    # print(grou5)
+    # print(beforeItems5)
