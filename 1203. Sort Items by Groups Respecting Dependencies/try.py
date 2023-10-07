@@ -88,7 +88,7 @@ class Solution(object):
                         for after in afterItem[tmp_current]:
                             tmp_indegree[after] -= 1
                         for mem in members:
-                            if tmp_indegree[mem] == 0:
+                            if tmp_indegree[mem] == 0 and mem not in tmp_queue:
                                 tmp_queue.append(mem)
 
                         print("tmp_queue")
@@ -210,10 +210,10 @@ if __name__ == '__main__':
     group4 = [0, 0, 2, 1, 0]
     beforeItems4 = [[3], [], [], [], [1, 3, 2]]
 
-    hangInTheAir = haha.sortItems(n4, m4, group4, beforeItems4)
+    # hangInTheAir = haha.sortItems(n4, m4, group4, beforeItems4)
 
-    print("\nfinal output : \n")
-    print(hangInTheAir)
+    # print("\nfinal output : \n")
+    # print(hangInTheAir)
     # print(group4)
     # print(beforeItems4)
 
@@ -224,9 +224,9 @@ if __name__ == '__main__':
     beforeItems5 = [[2, 5], [3, 5, 4, 6, 8, 7, 2],
                     [7], [], [], [], [], [], [], []]
 
-    # johnL = haha.sortItems(n5, m5, group5, beforeItems5)
+    johnL = haha.sortItems(n5, m5, group5, beforeItems5)
 
-    # print("\nfinal output : \n")
-    # print(johnL)
+    print("\nfinal output : \n")
+    print(johnL)
     # print(grou5)
     # print(beforeItems5)
