@@ -62,9 +62,11 @@ class Solution(object):
                     print("same members :")
                     print(members)
 
-                    for mem in afterItem[current]:
-                        tmp_indegree[mem] -= 1
-                        if tmp_indegree[mem] == 0 and mem in members:
+                    for after in afterItem[current]:
+                        tmp_indegree[after] -= 1
+
+                    for mem in members:
+                        if tmp_indegree[mem] == 0:
                             tmp_queue.append(mem)
 
                         print("member : %d" % mem)
@@ -98,7 +100,7 @@ class Solution(object):
                         print(members)
 
                     # check if group in current be all add in tmp_output
-                    if len(members) != 0 and len(queue) != 0use other condition:
+                    if len(members) != 0 and len(queue) != 0:
                         queue.append(current)
                     else:
                         output = output + tmp_output
@@ -212,5 +214,5 @@ if __name__ == '__main__':
 
     print("\nfinal output : \n")
     print(hangInTheAir)
-    print(group4)
-    print(beforeItems4)
+    # print(group4)
+    # print(beforeItems4)
