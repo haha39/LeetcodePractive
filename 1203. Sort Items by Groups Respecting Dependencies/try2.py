@@ -100,6 +100,9 @@ class Solution(object):
 
                     # check if group in current be all add in tmp_output
                     if len(members) == 0:
+                        print("else almost end")
+                        print(tmp_output)
+
                         output = output + tmp_output
 
                         # tmp_indegree
@@ -109,6 +112,7 @@ class Solution(object):
                         for ok in tmp_output:
                             if ok in queue:
                                 queue.remove(ok)
+
                         # help afterItem of member in the group
                         for mem in tmp_output:
                             for after in afterItem[mem]:
@@ -208,10 +212,10 @@ if __name__ == '__main__':
     group4 = [0, 0, 2, 1, 0]
     beforeItems4 = [[3], [], [], [], [1, 3, 2]]
 
-    hangInTheAir = haha.sortItems(n4, m4, group4, beforeItems4)
+    # hangInTheAir = haha.sortItems(n4, m4, group4, beforeItems4)
 
-    print("\nfinal output : \n")
-    print(hangInTheAir)
+    # print("\nfinal output : \n")
+    # print(hangInTheAir)
     # print(group4)
     # print(beforeItems4)
 
@@ -228,3 +232,14 @@ if __name__ == '__main__':
     # print(johnL)
     # print(grou5)
     # print(beforeItems5)
+
+    # input6
+    n6 = 10
+    m6 = 4
+    group6 = [2, 2, 2, 1, 0, 1, 3, 2, 0, 1]
+    beforeItems6 = [[7, 6, 2, 5, 3], [], [], [], [7], [], [], [], [], []]
+
+    gila = haha.sortItems(n6, m6, group6, beforeItems6)
+
+    print("\nfinal output : \n")
+    print(gila)
