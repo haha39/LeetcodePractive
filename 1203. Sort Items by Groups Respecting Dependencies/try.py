@@ -108,16 +108,15 @@ class Solution(object):
                         # tmp_indegree
                         indegree = copy.deepcopy(tmp_indegree)
 
+                        # help all member with indegree = 0 and not yet in output
+                        for mem in range(n):
+                            if (mem not in output) and (mem not in queue) and (indegree[mem] == 0):
+                                queue.append(mem)
+
                         # big remove from queue
                         for ok in tmp_output:
                             if ok in queue:
                                 queue.remove(ok)
-
-                        # help afterItem of member in the group
-                        for mem in tmp_output:
-                            for after in afterItem[mem]:
-                                if indegree[after] == 0 and after not in output:
-                                    queue.append(after)
 
                         print(indegree)
                         print(queue)
