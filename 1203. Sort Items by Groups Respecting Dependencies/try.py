@@ -21,7 +21,7 @@ class Solution(object):
             queue = []
             output = []
 
-            for g in range(-1, m, 1):
+            for g in range(m+1):
                 for item in dict_group[g]:
                     # print("%d\t%d" % (item, indegree[item]))
                     if indegree[item] == 0:
@@ -158,7 +158,7 @@ class Solution(object):
         print(afterItem)
         print(dict_group)
 
-        # ans = topologicalSort(indegree)
+        ans = topologicalSort(indegree)
 
         # print("\ntemp output")
         # print(ans)
