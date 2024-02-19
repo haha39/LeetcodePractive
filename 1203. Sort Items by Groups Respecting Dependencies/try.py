@@ -126,7 +126,8 @@ class Solution(object):
 
         # initial
         afterItem = []
-        dict_group = {}
+        # dict_group = {}
+        dict_group = []
 
         indegree = []
 
@@ -145,26 +146,27 @@ class Solution(object):
 
         # dict_group
         for i in range(-1, m, 1):
-            dict_group.update({i: []})
+            dict_group.append([])
 
         for i in range(n):
-            tmp = dict_group.get(group[i])
-            tmp.append(i)
-            dict_group.update({group[i]: tmp})
+            if group[i] == -1:
+                dict_group[m].append(i)
+            else:
+                dict_group[group[i]].append(i)
 
         print(indegree)
         print(afterItem)
         print(dict_group)
 
-        ans = topologicalSort(indegree)
+        # ans = topologicalSort(indegree)
 
-        print("\ntemp output")
-        print(ans)
+        # print("\ntemp output")
+        # print(ans)
 
-        if len(ans) != n:
-            return []
-        else:
-            return ans
+        # if len(ans) != n:
+        #     return []
+        # else:
+        #     return ans
 
 
 if __name__ == '__main__':
@@ -175,7 +177,7 @@ if __name__ == '__main__':
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
 
-    # nas = haha.sortItems(n1, m1, group1, beforeItems1)
+    nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
     # print("\nfinal output : \n")
     # print(nas)
