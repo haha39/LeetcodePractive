@@ -21,6 +21,11 @@ class Solution(object):
             queue = []
             output = []
 
+            def sortByGroup:
+            
+            def checkAfterItemIndegree:
+
+
             return output
 
         # initial
