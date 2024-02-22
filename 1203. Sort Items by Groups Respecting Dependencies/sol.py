@@ -21,13 +21,11 @@ class Solution(object):
             queue = []
             output = []
 
-            def sortByGroup():
-                x = 5
+        def sortByGroup():
+            x = 5
 
-            def checkAfterItemIndegree():
-                x = 5
-
-            return output
+        def checkAfterItemIndegree():
+            x = 5
 
         # initial
         afterItem = []
