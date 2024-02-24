@@ -29,10 +29,12 @@ class Solution(object):
 
         # initial
         afterItem = []
-        # dict_group = {}
-        dict_group = []
+        dict_group = {}
+        # dict_group = []
 
         indegree = []
+        queue = []
+        output = []
 
         # indegree
         for i in range(n):
