@@ -30,7 +30,7 @@ class Solution(object):
         # initial
         afterItem = []
         dict_group = {}
-        # dict_group = []
+        tmp_group = []
 
         indegree = []
         queue = []
@@ -50,28 +50,31 @@ class Solution(object):
                     afterItem[j].append(i)
 
         # dict_group
-        for i in range(-1, m, 1):
-            dict_group.append([])
+        for i in range(m+1):
+            tmp_group.append([])
 
         for i in range(n):
             if group[i] == -1:
-                dict_group[m].append(i)
+                tmp_group[0].append(i)
             else:
-                dict_group[group[i]].append(i)
+                tmp_group[group[i]+1].append(i)
+
+        for i in range(m+1):
+            dict_group[i-1] = tmp_group[i]
 
         print(indegree)
         print(afterItem)
         print(dict_group)
 
-        ans = topologicalSort(indegree)
+        # ans = topologicalSort(indegree)
 
-        print("\ntemp output")
-        print(ans)
+        # print("\ntemp output")
+        # print(ans)
 
-        if len(ans) != n:
-            return []
-        else:
-            return ans
+        # if len(ans) != n:
+        #     return []
+        # else:
+        #     return ans
 
 
 if __name__ == '__main__':
