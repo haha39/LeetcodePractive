@@ -27,6 +27,11 @@ class Solution(object):
         def checkAfterItemIndegree():
             x = 5
 
+        def enqueue(queue, groupID):
+            if groupID not in queue:
+                queue.append(groupID)
+            return queue
+
         # initial
         afterItem = []
         dict_group = {}
@@ -70,7 +75,7 @@ class Solution(object):
         for i in range(m+1):
             for j in dict_group[i-1]:
                 if indegree[j] == 0:
-                    queue.append(j)
+                    enqueue(queue, i)
 
         print(queue)
 
