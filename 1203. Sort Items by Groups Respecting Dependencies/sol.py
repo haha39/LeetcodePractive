@@ -31,8 +31,8 @@ class Solution(object):
         afterItem = []
         dict_group = {}
         tmp_group = []
-
         indegree = []
+
         queue = []
         output = []
 
@@ -66,7 +66,13 @@ class Solution(object):
         print(afterItem)
         print(dict_group)
 
-        # ans = topologicalSort(indegree)
+        # step1 : put group with 0 indegree into queue
+        for i in range(m+1):
+            for j in dict_group[i-1]:
+                if indegree[j] == 0:
+                    queue.append(j)
+
+        print(queue)
 
         # print("\ntemp output")
         # print(ans)
