@@ -24,8 +24,8 @@ class Solution(object):
         def sortByGroup():
             x = 5
 
-        def checkAfterItemIndegree():
-            x = 5
+        def enoutput(output, item):
+            
 
         def enqueue(queue, groupID):
             if groupID not in queue:
@@ -75,7 +75,10 @@ class Solution(object):
         for i in range(m+1):
             for j in dict_group[i-1]:
                 if indegree[j] == 0:
-                    enqueue(queue, i)
+                    if i == 0:
+                        enoutput(output, j)
+                    else:
+                        enqueue(queue, i)
 
         print(queue)
 
