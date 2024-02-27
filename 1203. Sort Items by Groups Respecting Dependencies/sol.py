@@ -25,7 +25,12 @@ class Solution(object):
             x = 5
 
         def enoutput(output, item):
-            
+
+            for i in afterItem[item]:
+                print("yaya")
+                # 1. release afterItem
+                # 2. delete in dict_group
+                # 3. push in output
 
         def enqueue(queue, groupID):
             if groupID not in queue:
@@ -59,10 +64,7 @@ class Solution(object):
             tmp_group.append([])
 
         for i in range(n):
-            if group[i] == -1:
-                tmp_group[0].append(i)
-            else:
-                tmp_group[group[i]+1].append(i)
+            tmp_group[group[i]+1].append(i)
 
         for i in range(m+1):
             dict_group[i-1] = tmp_group[i]
@@ -75,12 +77,16 @@ class Solution(object):
         for i in range(m+1):
             for j in dict_group[i-1]:
                 if indegree[j] == 0:
+                    print(j)
+
                     if i == 0:
                         enoutput(output, j)
                     else:
                         enqueue(queue, i)
 
         print(queue)
+        print("it is important")
+        print(dict_group)
 
         # print("\ntemp output")
         # print(ans)
@@ -98,6 +104,9 @@ if __name__ == '__main__':
     m1 = 2
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
+
+    print(group1)
+    print(beforeItems1)
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
