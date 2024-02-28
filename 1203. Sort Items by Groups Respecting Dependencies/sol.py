@@ -24,13 +24,13 @@ class Solution(object):
         def sortByGroup():
             x = 5
 
-        def enoutput(output, item):
-
-            for i in afterItem[item]:
-                print("yaya")
-                # 1. release afterItem
-                # 2. delete in dict_group
-                # 3. push in output
+        def enoutput(output, item, groupID):
+            if groupID == 0:
+                for i in afterItem[item]:
+                    print("yaya")
+                    # 1. release afterItem
+                    # 2. delete in dict_group
+                    # 3. push in output
 
         def enqueue(queue, groupID):
             if groupID not in queue:
@@ -75,18 +75,20 @@ class Solution(object):
 
         # step1 : put group with 0 indegree into queue
         for i in range(m+1):
-            for j in dict_group[i-1]:
-                if indegree[j] == 0:
-                    print(j)
+            for j in dict_group.get(i-1):
+                if j != None:
+                    if indegree[j] == 0:
+                        print(j)
 
-                    if i == 0:
-                        enoutput(output, j)
-                    else:
-                        enqueue(queue, i)
+                        if i == 0:
+                            enoutput(output, j, i)
+                            print(dict_group)
+                            print(indegree)
+                            print(output)
+                        else:
+                            enqueue(queue, i)
 
         print(queue)
-        print("it is important")
-        print(dict_group)
 
         # print("\ntemp output")
         # print(ans)
@@ -107,6 +109,17 @@ if __name__ == '__main__':
 
     print(group1)
     print(beforeItems1)
+
+    # aa = {}
+    # h = ['haha', 'hehe', 'jojo']
+
+    # aa['haha'] = 1
+    # aa['hehe'] = 1
+
+    # for i in h:
+    #     x = aa.get(i)
+    #     print(h[x])
+    #     print(type(x))
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
