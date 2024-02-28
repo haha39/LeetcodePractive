@@ -18,24 +18,22 @@ class Solution(object):
         """
 
         def topologicalSort(indegree):
-            queue = []
-            output = []
+            hahehoho = 0
 
         def sortByGroup():
             x = 5
 
-        def enoutput(output, item, groupID):
-            if groupID == 0:
-                for i in afterItem[item]:
-                    print("yaya")
-                    # 1. release afterItem
-                    # 2. delete in dict_group
-                    # 3. push in output
+        def enoutput(item):
+            for after in afterItem[item]:
+                print("yaya")
+                # 1. release afterItem
+                # 3. push in output
+                indegree[after] -= 1
+            output.append(item)
 
-        def enqueue(queue, groupID):
+        def enqueue(groupID):
             if groupID not in queue:
                 queue.append(groupID)
-            return queue
 
         # initial
         afterItem = []
@@ -81,22 +79,22 @@ class Solution(object):
                         print(j)
 
                         if i == 0:
-                            enoutput(output, j, i)
+                            enoutput(j)
                             print(dict_group)
                             print(indegree)
                             print(output)
                         else:
-                            enqueue(queue, i)
+                            enqueue(i)
 
         print(queue)
 
-        # print("\ntemp output")
-        # print(ans)
+        print("\ntemp output")
+        print(output)
 
-        # if len(ans) != n:
-        #     return []
-        # else:
-        #     return ans
+        if len(output) != n:
+            return []
+        else:
+            return output
 
 
 if __name__ == '__main__':
@@ -106,9 +104,6 @@ if __name__ == '__main__':
     m1 = 2
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
-
-    print(group1)
-    print(beforeItems1)
 
     # aa = {}
     # h = ['haha', 'hehe', 'jojo']
