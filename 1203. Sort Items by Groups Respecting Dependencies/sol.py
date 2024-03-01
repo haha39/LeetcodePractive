@@ -88,6 +88,11 @@ class Solution(object):
 
         print(queue)
 
+        # step2 : pop and try
+        for id in queue:
+            for item in dict_group[id]:
+                x = 1
+
         print("\ntemp output")
         print(output)
 
