@@ -90,8 +90,9 @@ class Solution(object):
 
         # step2 : pop and try
         for id in queue:
-            for item in dict_group[id]:
-                x = 1
+            for mem in dict_group[id-1]:
+                print(mem)
+            print("\n")
 
         print("\ntemp output")
         print(output)
