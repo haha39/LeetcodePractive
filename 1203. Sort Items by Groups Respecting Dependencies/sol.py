@@ -20,8 +20,12 @@ class Solution(object):
         def topologicalSort(indegree):
             hahehoho = 0
 
-        def sortByGroup():
+        def sortByGroup(id):
             x = 5
+            if x == 5:
+                return 0
+
+            return 1
 
         def enoutput(item):
             for after in afterItem[item]:
@@ -90,9 +94,13 @@ class Solution(object):
 
         # step2 : pop and try
         for id in queue:
-            for mem in dict_group[id-1]:
-                print(mem)
-            print("\n")
+            res = sortByGroup(id)
+
+            if res == 1:
+                for mem in dict_group[id-1]:
+                    a = 1
+                # enoutput
+                # chrck enqueue
 
         print("\ntemp output")
         print(output)
