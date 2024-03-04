@@ -83,10 +83,15 @@ class Solution(object):
 
         # step1 : put group with 0 indegree into queue
         for groupID in range(m+1):
-            for mem in dict_group.get(groupID):
-                if mem != None:
+
+            getID = dict_group.get(groupID)
+
+            if getID != None:
+                for mem in getID:
+
                     if indegree[mem] == 0:
-                        print(mem)
+                        print("member %d's indegree is 0, in group %d" %
+                              (mem, groupID))
 
                         if groupID == 0:
                             enoutput(mem)
@@ -95,8 +100,6 @@ class Solution(object):
                             print(output)
                         else:
                             enqueue(groupID)
-                else:
-                    
 
         print(queue)
 
