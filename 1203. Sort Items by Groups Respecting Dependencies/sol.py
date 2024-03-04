@@ -21,7 +21,12 @@ class Solution(object):
             hahehoho = 0
 
         def sortByGroup(id):
-            print(id)
+            print("id = %d" % id)
+
+            for m in dict_group[id]:
+                print(m)
+
+            # copy monster is coming
 
             if id == 5:
                 return 0
@@ -77,19 +82,21 @@ class Solution(object):
         print(dict_group)
 
         # step1 : put group with 0 indegree into queue
-        for i in range(m+1):
-            for j in dict_group.get(i):
-                if j != None:
-                    if indegree[j] == 0:
-                        print(j)
+        for groupID in range(m+1):
+            for mem in dict_group.get(groupID):
+                if mem != None:
+                    if indegree[mem] == 0:
+                        print(mem)
 
-                        if i == 0:
-                            enoutput(j)
+                        if groupID == 0:
+                            enoutput(mem)
                             print(dict_group)
                             print(indegree)
                             print(output)
                         else:
-                            enqueue(i)
+                            enqueue(groupID)
+                else:
+                    
 
         print(queue)
 
