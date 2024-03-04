@@ -21,8 +21,9 @@ class Solution(object):
             hahehoho = 0
 
         def sortByGroup(id):
-            x = 5
-            if x == 5:
+            print(id)
+
+            if id == 5:
                 return 0
 
             return 1
@@ -69,7 +70,7 @@ class Solution(object):
             tmp_group[group[i]+1].append(i)
 
         for i in range(m+1):
-            dict_group[i-1] = tmp_group[i]
+            dict_group[i] = tmp_group[i]
 
         print(indegree)
         print(afterItem)
@@ -77,7 +78,7 @@ class Solution(object):
 
         # step1 : put group with 0 indegree into queue
         for i in range(m+1):
-            for j in dict_group.get(i-1):
+            for j in dict_group.get(i):
                 if j != None:
                     if indegree[j] == 0:
                         print(j)
@@ -97,7 +98,7 @@ class Solution(object):
             res = sortByGroup(id)
 
             if res == 1:
-                for mem in dict_group[id-1]:
+                for mem in dict_group[id]:
                     a = 1
                 # enoutput
                 # chrck enqueue
