@@ -21,10 +21,17 @@ class Solution(object):
             hahehoho = 0
 
         def sortByGroup(id):
+
             print("id = %d" % id)
+            member = {}
+            sortedGroup = []
 
             for m in dict_group[id]:
-                print(m)
+
+                # x = {m, indegree[m]}
+                member[m] = indegree[m]
+
+            print(member)
 
             # copy monster is coming
 
