@@ -112,7 +112,6 @@ class Solution(object):
 
         # step2 : pop and try
         for id in queue:
-            res = 0
             res = sortByGroup(id)
 
             if res == 1:
