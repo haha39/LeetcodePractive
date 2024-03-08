@@ -28,10 +28,16 @@ class Solution(object):
 
             for m in dict_group[id]:
 
-                # x = {m, indegree[m]}
                 member[m] = indegree[m]
+                if indegree[m] == 0:
+                    sortedGroup.append(m)
 
             print(member)
+            print(sortedGroup)
+
+            while len(sortedGroup) != 0:
+                x = sortedGroup.pop()
+                print(x)
 
             # copy monster is coming
 
