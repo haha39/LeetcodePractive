@@ -24,20 +24,26 @@ class Solution(object):
 
             print("id = %d" % id)
             member = {}
+            tmp = []
             sortedGroup = []
 
             for m in dict_group[id]:
 
                 member[m] = indegree[m]
                 if indegree[m] == 0:
-                    sortedGroup.append(m)
+                    tmp.append(m)
 
             print(member)
-            print(sortedGroup)
+            print(tmp)
 
-            while len(sortedGroup) != 0:
-                x = sortedGroup.pop()
+            while len(tmp) != 0:
+                x = tmp.pop()
                 print(x)
+                sortedGroup.append(x)
+                for m in afterItem[x]:
+                    print(m)
+                    in_degree = member.get(m, -1)
+                    print(in_degree)
 
             # copy monster is coming
 
