@@ -26,28 +26,36 @@ class Solution(object):
             member = {}
             tmp = []
             sortedGroup = []
+            size = 0
 
             for m in dict_group[id]:
 
+                size += 1
                 member[m] = indegree[m]
                 if indegree[m] == 0:
                     tmp.append(m)
 
             print(member)
             print(tmp)
+            print("size = %d" % size)
 
             while len(tmp) != 0:
                 x = tmp.pop()
                 print(x)
                 sortedGroup.append(x)
                 for m in afterItem[x]:
-                    print(m)
-                    in_degree = member.get(m, -1)
-                    print(in_degree)
+                    # print(m)
+                    in_degree = member.get(m, -100)
+                    # print(in_degree)
+                    if in_degree == 1:
+                        tmp.append(m)
+                    elif in_degree > 1:
+                        in_degree -= 1
+                        member[m] = in_degree
 
-            # copy monster is coming
+            print(sortedGroup)
 
-            if id == 5:
+            if len(sortedGroup) != size:
                 return 0
 
             return 1
@@ -127,6 +135,7 @@ class Solution(object):
             res = sortByGroup(id)
 
             if res == 1:
+                print("jojo")
                 for mem in dict_group[id]:
                     a = 1
                 # enoutput
