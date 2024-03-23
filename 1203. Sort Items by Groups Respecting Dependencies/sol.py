@@ -55,10 +55,7 @@ class Solution(object):
 
             print(sortedGroup)
 
-            if len(sortedGroup) != size:
-                return 0
-
-            return 1
+            return 0 if len(sortedGroup) != size else 1
 
         def enoutput(item):
             for after in afterItem[item]:
@@ -144,10 +141,7 @@ class Solution(object):
         print("\ntemp output")
         print(output)
 
-        if len(output) != n:
-            return []
-        else:
-            return output
+        return output if len(output) == n else []
 
 
 if __name__ == '__main__':
