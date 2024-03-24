@@ -57,6 +57,10 @@ class Solution(object):
 
             return 0 if len(sortedGroup) != size else 1
 
+        def enqueue(groupID):
+            if groupID not in queue:
+                queue.append(groupID)
+
         def enoutput(item):
             for after in afterItem[item]:
                 print("yaya")
@@ -64,10 +68,6 @@ class Solution(object):
                 # 3. push in output
                 indegree[after] -= 1
             output.append(item)
-
-        def enqueue(groupID):
-            if groupID not in queue:
-                queue.append(groupID)
 
         # initial
         afterItem = []
@@ -120,6 +120,7 @@ class Solution(object):
                         if groupID == 0:
                             indegree[mem] = 0
                             enoutput(mem)
+                            # need to fix this error : sortbyID -> sortbyMEM
                             print(dict_group)
                             print(indegree)
                             print(output)
