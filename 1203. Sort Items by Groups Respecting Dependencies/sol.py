@@ -118,6 +118,7 @@ class Solution(object):
                               (mem, groupID))
 
                         if groupID == 0:
+                            indegree[mem] = 0
                             enoutput(mem)
                             print(dict_group)
                             print(indegree)
@@ -134,9 +135,19 @@ class Solution(object):
             if res == 1:
                 print("jojo")
                 for mem in dict_group[id]:
-                    a = 1
-                # enoutput
-                # chrck enqueue
+
+                    # indegree = 0
+                    indegree[mem] = 0
+                    # enoutput
+                    enoutput(mem)
+                    # check enqueue
+                    for after in afterItem[mem]:
+                        if group[after] == id:
+                            a = 1
+                        elif group[after] == 0:
+                            b = 0
+                        else:
+                            c = 2
 
         print("\ntemp output")
         print(output)
