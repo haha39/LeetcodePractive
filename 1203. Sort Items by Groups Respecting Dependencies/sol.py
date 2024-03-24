@@ -66,6 +66,8 @@ class Solution(object):
                 print("yaya")
                 # 1. release afterItem
                 # 3. push in output
+                # need to fix this error : make a small loop/stack for group-1
+
                 indegree[after] -= 1
             output.append(item)
 
@@ -120,7 +122,7 @@ class Solution(object):
                         if groupID == 0:
                             indegree[mem] = 0
                             enoutput(mem)
-                            # need to fix this error : sortbyID -> sortbyMEM
+
                             print(dict_group)
                             print(indegree)
                             print(output)
@@ -145,7 +147,7 @@ class Solution(object):
                     for after in afterItem[mem]:
                         if group[after] == id:
                             a = 1
-                        elif group[after] == 0:
+                        elif group[after] == -1:
                             b = 0
                         else:
                             c = 2
