@@ -62,12 +62,13 @@ class Solution(object):
                 queue.append(groupID)
 
         def enoutput(item):
+            print("check it, item is %d" % item)
             if group[item] != -1:
                 for after in afterItem[item]:
-                    print("yaya")
-                # 1. release afterItem
-                # 3. push in output
-                # need to fix this error : make a small loop/stack for group-1
+                    # print("yaya")
+                    # 1. release afterItem
+                    # 3. push in output
+                    # need to fix this error : make a small loop/stack for group-1
                     indegree[after] -= 1
                 output.append(item)
             else:
@@ -144,9 +145,13 @@ class Solution(object):
                             enqueue(groupID)
 
         print(queue)
+        print(output)
 
         # step2 : pop and try
-        for id in queue:
+        while (len(queue) != 0):
+
+            id = queue.pop(0)
+            print("hey, this time id is %d\n" % id)
             res = sortByGroup(id)
 
             if res == 1:
@@ -159,10 +164,14 @@ class Solution(object):
                     enoutput(mem)
                     # check enqueue
                     for after in afterItem[mem]:
-                        if group[after] != id and group[after] != -1:
-                            enqueue(after)
-                        else:
-                            enoutput(after)
+                        if after not in output:
+                            if (group[after]+1) != id and group[after] != -1:
+                                enqueue(after)
+                            else:
+                                enoutput(after)
+
+            print("\nshow me the output")
+            print(output)
 
         print("\ntemp output")
         print(output)
