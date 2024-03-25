@@ -62,14 +62,28 @@ class Solution(object):
                 queue.append(groupID)
 
         def enoutput(item):
-            for after in afterItem[item]:
-                print("yaya")
+            if group[item] != -1:
+                for after in afterItem[item]:
+                    print("yaya")
                 # 1. release afterItem
                 # 3. push in output
                 # need to fix this error : make a small loop/stack for group-1
+                    indegree[after] -= 1
+                output.append(item)
+            else:
+                stack = []
+                stack.append(item)
 
-                indegree[after] -= 1
-            output.append(item)
+                while (len(stack) != 0):
+
+                    hito = stack.pop()
+                    for after in afterItem[hito]:
+                        if group[after] != -1:
+                            indegree[after] -= 1
+                        else:
+                            stack.append(after)
+
+                    output.append(hito)
 
         # initial
         afterItem = []
@@ -145,12 +159,10 @@ class Solution(object):
                     enoutput(mem)
                     # check enqueue
                     for after in afterItem[mem]:
-                        if group[after] == id:
-                            a = 1
-                        elif group[after] == -1:
-                            b = 0
+                        if group[after] != id and group[after] != -1:
+                            enqueue(after)
                         else:
-                            c = 2
+                            enoutput(after)
 
         print("\ntemp output")
         print(output)
