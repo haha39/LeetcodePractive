@@ -164,8 +164,8 @@ class Solution(object):
                     enoutput(mem)
                     # check enqueue
                     for after in afterItem[mem]:
-                        if after not in output:
-                            if (group[after]+1) != id and group[after] != -1:
+                        if (group[after]+1) != id:
+                            if group[after] != -1:
                                 enqueue(after)
                             else:
                                 enoutput(after)
