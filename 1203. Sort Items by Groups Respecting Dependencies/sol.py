@@ -161,6 +161,7 @@ class Solution(object):
                     # indegree = 0
                     indegree[mem] = 0
                     # enoutput
+                    # no need, correct sortByGroup to make it in order
                     enoutput(mem)
                     # check enqueue
                     for after in afterItem[mem]:
