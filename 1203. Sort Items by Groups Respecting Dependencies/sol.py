@@ -55,7 +55,7 @@ class Solution(object):
 
             print(sortedGroup)
 
-            return 0 if len(sortedGroup) != size else 1
+            return (sortedGroup, size)
 
         def enqueue(groupID):
             if groupID not in queue:
@@ -152,16 +152,14 @@ class Solution(object):
 
             id = queue.pop(0)
             print("hey, this time id is %d\n" % id)
-            res = sortByGroup(id)
+            res, size = sortByGroup(id)
 
-            if res == 1:
+            if len(res) == size:
                 print("jojo")
-                for mem in dict_group[id]:
-
+                for mem in res:
                     # indegree = 0
                     indegree[mem] = 0
                     # enoutput
-                    # no need, correct sortByGroup to make it in order
                     enoutput(mem)
                     # check enqueue
                     for after in afterItem[mem]:
