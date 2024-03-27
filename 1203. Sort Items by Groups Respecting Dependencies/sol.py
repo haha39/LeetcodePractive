@@ -155,12 +155,13 @@ class Solution(object):
             res, size = sortByGroup(id)
 
             if len(res) == size:
+                output = output + res
                 print("jojo")
                 for mem in res:
                     # indegree = 0
                     indegree[mem] = 0
                     # enoutput
-                    enoutput(mem)
+                    # enoutput(mem)
                     # check enqueue
                     for after in afterItem[mem]:
                         if (group[after]+1) != id:
@@ -185,17 +186,6 @@ if __name__ == '__main__':
     m1 = 2
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
-
-    # aa = {}
-    # h = ['haha', 'hehe', 'jojo']
-
-    # aa['haha'] = 1
-    # aa['hehe'] = 1
-
-    # for i in h:
-    #     x = aa.get(i)
-    #     print(h[x])
-    #     print(type(x))
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
