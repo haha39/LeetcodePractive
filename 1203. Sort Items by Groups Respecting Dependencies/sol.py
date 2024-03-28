@@ -1,5 +1,3 @@
-import copy
-
 '''
 1. put item with 0 indegree in queue
 2. use bfs to check if we can solve the whole group altogather
@@ -187,12 +185,12 @@ if __name__ == '__main__':
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
 
-    nas = haha.sortItems(n1, m1, group1, beforeItems1)
+    # nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
-    print("\nfinal output : \n")
-    print(nas)
-    print(group1)
-    print(beforeItems1)
+    # print("\nfinal output : \n")
+    # print(nas)
+    # print(group1)
+    # print(beforeItems1)
 
     # input2
     n2 = 8
@@ -265,3 +263,16 @@ if __name__ == '__main__':
 
     # print("\nfinal output : \n")
     # print(flyingBanana)
+
+    # input8
+    n8 = 5
+    m8 = 5
+    group8 = [2, 0, -1, 3, 0]
+    beforeItems8 = [[2, 1, 3], [2, 4], [], [], []]
+
+    gwen = haha.sortItems(n8, m8, group8, beforeItems8)
+
+    print("\nfinal output : \n")
+    print(gwen)
+    print(group8)
+    print(beforeItems8)
