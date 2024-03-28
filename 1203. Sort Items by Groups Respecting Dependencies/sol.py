@@ -15,10 +15,10 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        def topologicalSort(indegree):
-            hahehoho = 0
-
         def sortByGroup(id):
+            '''
+            Useing Topological Sort to order the members in the same group
+            '''
 
             print("id = %d" % id)
             member = {}
@@ -26,10 +26,12 @@ class Solution(object):
             sortedGroup = []
             size = 0
 
+            # calucate size of group, indegree of members, and add 0-indegree-member to tmp
             for m in dict_group[id]:
 
                 size += 1
                 member[m] = indegree[m]
+
                 if indegree[m] == 0:
                     tmp.append(m)
 
@@ -37,25 +39,30 @@ class Solution(object):
             print(tmp)
             print("size = %d" % size)
 
+            # Topological Sort
             while len(tmp) != 0:
                 x = tmp.pop()
                 print(x)
                 sortedGroup.append(x)
                 for m in afterItem[x]:
-                    # print(m)
+
                     in_degree = member.get(m, -100)
-                    # print(in_degree)
-                    if in_degree == 1:
+
+                    if in_degree == 1:  # this member can be sorted in the next round
                         tmp.append(m)
-                    elif in_degree > 1:
+                    elif in_degree > 1:  # else, indegree--
                         in_degree -= 1
                         member[m] = in_degree
 
             print(sortedGroup)
 
+            # return 1.the sorted group as list 2.size of this group
             return (sortedGroup, size)
 
         def enqueue(groupID):
+            '''
+            push id to queue if this id isn't in queue yet
+            '''
             if groupID not in queue:
                 queue.append(groupID)
 
@@ -89,7 +96,6 @@ class Solution(object):
         dict_group = {}
         tmp_group = []
         indegree = []
-
         queue = []
         output = []
 
@@ -146,30 +152,30 @@ class Solution(object):
         print(output)
 
         # step2 : pop and try
-        while (len(queue) != 0):
+        # while (len(queue) != 0):
 
-            id = queue.pop(0)
-            print("hey, this time id is %d\n" % id)
-            res, size = sortByGroup(id)
+        #     id = queue.pop(0)
+        #     print("hey, this time id is %d\n" % id)
+        #     res, size = sortByGroup(id)
 
-            if len(res) == size:
-                output = output + res
-                print("jojo")
-                for mem in res:
-                    # indegree = 0
-                    indegree[mem] = 0
-                    # enoutput
-                    # enoutput(mem)
-                    # check enqueue
-                    for after in afterItem[mem]:
-                        if (group[after]+1) != id:
-                            if group[after] != -1:
-                                enqueue(after)
-                            else:
-                                enoutput(after)
+        #     if len(res) == size:
+        #         output = output + res
+        #         print("jojo")
+        #         for mem in res:
+        #             # indegree = 0
+        #             indegree[mem] = 0
+        #             # enoutput
+        #             # enoutput(mem)
+        #             # check enqueue
+        #             for after in afterItem[mem]:
+        #                 if (group[after]+1) != id:
+        #                     if group[after] != -1:
+        #                         enqueue(after)
+        #                     else:
+        #                         enoutput(after)
 
-            print("\nshow me the output")
-            print(output)
+        #     print("\nshow me the output")
+        #     print(output)
 
         print("\ntemp output")
         print(output)
