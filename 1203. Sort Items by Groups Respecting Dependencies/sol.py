@@ -67,22 +67,24 @@ class Solution(object):
                 queue.append(groupID)
 
         def enoutput(item):
+            '''
+            if this person belong to no group : 1.release afterPerson 2.add other person belong to no group to output
+            else, just release afterPerson
+            '''
             print("check it, item is %d" % item)
+
             if group[item] != -1:
                 for after in afterItem[item]:
-                    # print("yaya")
-                    # 1. release afterItem
-                    # 3. push in output
-                    # need to fix this error : make a small loop/stack for group-1
                     indegree[after] -= 1
+
                 output.append(item)
             else:
                 stack = []
                 stack.append(item)
 
                 while (len(stack) != 0):
-
                     hito = stack.pop()
+
                     for after in afterItem[hito]:
                         if group[after] != -1:
                             indegree[after] -= 1
@@ -138,14 +140,14 @@ class Solution(object):
                         print("member %d's indegree is 0, in group %d" %
                               (mem, groupID))
 
-                        if groupID == 0:
+                        if groupID == 0:    # add this young man to output
                             indegree[mem] = 0
                             enoutput(mem)
 
                             print(dict_group)
                             print(indegree)
                             print(output)
-                        else:
+                        else:  # his group might have chance, let's try try see
                             enqueue(groupID)
 
         print(queue)
