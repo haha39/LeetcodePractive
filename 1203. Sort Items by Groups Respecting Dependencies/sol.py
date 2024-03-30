@@ -89,7 +89,10 @@ class Solution(object):
                         if group[after] != -1:
                             indegree[after] -= 1
                         else:
-                            stack.append(after)
+                            if indegree[after] == 1:
+                                stack.append(after)
+                            else:
+                                indegree[after] -= 1
 
                     output.append(hito)
 
@@ -158,6 +161,7 @@ class Solution(object):
 
             id = queue.pop(0)
             print("hey, this time id is %d\n" % id)
+            # print(sortByGroup(id))
             res, size = sortByGroup(id)
 
             # if this group can be ordered
@@ -172,10 +176,11 @@ class Solution(object):
                     for after in afterItem[mem]:
 
                         if (group[after]+1) != id:
-                            if group[after] != -1:
-                                enqueue(after)
-                            else:
-                                enoutput(after)
+                            if indegree[after] == 1:
+                                if group[after] != -1:
+                                    enqueue(after)
+                                else:
+                                    enoutput(after)
 
             print("\nshow me the output")
             print(output)
