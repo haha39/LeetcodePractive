@@ -128,7 +128,7 @@ class Solution(object):
         print(afterItem)
         print(dict_group)
 
-        # step1 : put group with 0 indegree into queue
+        # step1 : put group with 0 indegree into queue, however, if this kid belongs to no group, just enterOutput(kid)
         for groupID in range(m+1):
 
             getID = dict_group.get(groupID)
@@ -154,30 +154,31 @@ class Solution(object):
         print(output)
 
         # step2 : pop and try
-        # while (len(queue) != 0):
+        while (len(queue) != 0):
 
-        #     id = queue.pop(0)
-        #     print("hey, this time id is %d\n" % id)
-        #     res, size = sortByGroup(id)
+            id = queue.pop(0)
+            print("hey, this time id is %d\n" % id)
+            res, size = sortByGroup(id)
 
-        #     if len(res) == size:
-        #         output = output + res
-        #         print("jojo")
-        #         for mem in res:
-        #             # indegree = 0
-        #             indegree[mem] = 0
-        #             # enoutput
-        #             # enoutput(mem)
-        #             # check enqueue
-        #             for after in afterItem[mem]:
-        #                 if (group[after]+1) != id:
-        #                     if group[after] != -1:
-        #                         enqueue(after)
-        #                     else:
-        #                         enoutput(after)
+            # if this group can be ordered
+            if len(res) == size:
+                output = output + res
+                print("jojo")
 
-        #     print("\nshow me the output")
-        #     print(output)
+                for mem in res:
+                    # indegree = 0
+                    indegree[mem] = 0
+                    # check if members' afterPerson can add to queue
+                    for after in afterItem[mem]:
+
+                        if (group[after]+1) != id:
+                            if group[after] != -1:
+                                enqueue(after)
+                            else:
+                                enoutput(after)
+
+            print("\nshow me the output")
+            print(output)
 
         print("\ntemp output")
         print(output)
