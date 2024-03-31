@@ -83,13 +83,15 @@ class Solution(object):
                 stack.append(item)
 
                 while (len(stack) != 0):
+
                     hito = stack.pop()
 
                     for after in afterItem[hito]:
                         if group[after] != -1:
                             indegree[after] -= 1
                         else:
-                            if indegree[after] == 1:
+                            if indegree[after] == 0:
+                                indegree[after] = 0
                                 stack.append(after)
                             else:
                                 indegree[after] -= 1
@@ -155,19 +157,19 @@ class Solution(object):
 
         print(queue)
         print(output)
+        print(indegree)
 
         # step2 : pop and try
         while (len(queue) != 0):
 
             id = queue.pop(0)
-            print("hey, this time id is %d\n" % id)
+            print("\nhey, this time id is %d" % id)
             # print(sortByGroup(id))
             res, size = sortByGroup(id)
 
             # if this group can be ordered
             if len(res) == size:
                 output = output + res
-                print("jojo")
 
                 for mem in res:
                     # indegree = 0
@@ -176,14 +178,19 @@ class Solution(object):
                     for after in afterItem[mem]:
 
                         if (group[after]+1) != id:
-                            if indegree[after] == 1:
+
+                            indegree[after] -= 1
+
+                            if indegree[after] == 0:
                                 if group[after] != -1:
-                                    enqueue(after)
+                                    enqueue((group[after]+1))
                                 else:
                                     enoutput(after)
 
-            print("\nshow me the output")
+            print("show me the output\n")
             print(output)
+            print(indegree)
+            print(queue)
 
         print("\ntemp output")
         print(output)
