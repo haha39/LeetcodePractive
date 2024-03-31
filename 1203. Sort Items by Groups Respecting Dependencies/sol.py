@@ -219,9 +219,9 @@ if __name__ == '__main__':
     group2 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems2 = [[], [6], [5], [6], [3], [], [4], []]
 
-    # godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
-    # print("\nfinal output : \n")
-    # print(godspeed)
+    godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
+    print("\nfinal output : \n")
+    print(godspeed)
 
     # input3
     n3 = 4
@@ -275,10 +275,10 @@ if __name__ == '__main__':
     # print(gila)
 
     # input7
-    # n7 = 5000
-    # m7 = 152
-    # group7 = []
-    # beforeItems7 = []
+    n7 = 5000
+    m7 = 152
+    group7 = []
+    beforeItems7 = []
 
     # flyingBanana = haha.sortItems(n7, m7, group7, beforeItems7)
 
@@ -291,9 +291,9 @@ if __name__ == '__main__':
     group8 = [2, 0, -1, 3, 0]
     beforeItems8 = [[2, 1, 3], [2, 4], [], [], []]
 
-    gwen = haha.sortItems(n8, m8, group8, beforeItems8)
+    # gwen = haha.sortItems(n8, m8, group8, beforeItems8)
 
-    print("\nfinal output : \n")
-    print(gwen)
-    print(group8)
-    print(beforeItems8)
+    # print("\nfinal output : \n")
+    # print(gwen)
+    # print(group8)
+    # print(beforeItems8)
