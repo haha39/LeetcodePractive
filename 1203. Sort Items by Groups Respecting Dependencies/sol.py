@@ -216,8 +216,10 @@ if __name__ == '__main__':
     # input2
     n2 = 8
     m2 = 2
+    # group2 = [-1, -1, 1, 0, 0, 1, 0, -1]
+    # beforeItems2 = [[], [6], [5], [6], [3], [], [4], []]
     group2 = [-1, -1, 1, 0, 0, 1, 0, -1]
-    beforeItems2 = [[], [6], [5], [6], [3], [], [4], []]
+    beforeItems2 = [[3], [6, 0], [5], [6], [3, 6, 7], [], [], []]
 
     godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
     print("\nfinal output : \n")
