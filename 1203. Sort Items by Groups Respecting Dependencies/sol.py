@@ -90,7 +90,7 @@ class Solution(object):
                         if group[after] != -1:
                             indegree[after] -= 1
                         else:
-                            if indegree[after] == 0:
+                            if indegree[after] == 1:
                                 indegree[after] = 0
                                 stack.append(after)
                             else:
