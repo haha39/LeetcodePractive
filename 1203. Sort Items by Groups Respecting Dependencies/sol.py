@@ -99,7 +99,17 @@ class Solution(object):
                     output.append(hito)
 
         def enterIsOk(item):
-            x = 1
+            if indegree[item] == 0:
+                return 1
+            else:
+                ct = 0
+                for i in beforeItems[item]:
+                    if group[i] == group[item]:
+                        ct += 1
+                if ct == indegree[item]:
+                    return 1
+                else:
+                    return 0
 
         # initial
         afterItem = []
@@ -184,7 +194,8 @@ class Solution(object):
 
                             indegree[after] -= 1
 
-                            if indegree[after] == 0:  # change here
+                            # if indegree[after] == 0:  # change here
+                            if enterIsOk(after) == 1:
                                 if group[after] != -1:
                                     enqueue((group[after]+1))
                                 else:
