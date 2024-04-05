@@ -98,6 +98,9 @@ class Solution(object):
 
                     output.append(hito)
 
+        def enterIsOk(item):
+            x = 1
+
         # initial
         afterItem = []
         dict_group = {}
@@ -181,7 +184,7 @@ class Solution(object):
 
                             indegree[after] -= 1
 
-                            if indegree[after] == 0:
+                            if indegree[after] == 0:  # change here
                                 if group[after] != -1:
                                     enqueue((group[after]+1))
                                 else:
