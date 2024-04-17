@@ -80,6 +80,7 @@ class Solution(object):
                 output.append(item)
             else:
                 stack = []
+                indegree[item] = 0
                 stack.append(item)
 
                 while (len(stack) != 0):
@@ -97,6 +98,7 @@ class Solution(object):
                                 indegree[after] -= 1
 
                     output.append(hito)
+                    print(output)
 
         def enterIsOk(item):
             if indegree[item] == 0:
@@ -189,6 +191,7 @@ class Solution(object):
                     indegree[mem] = 0
                     # check if members' afterPerson can add to queue
                     for after in afterItem[mem]:
+                        # print("hahaha:%d" % after)
 
                         if (group[after]+1) != id:
 
