@@ -72,6 +72,7 @@ class Solution(object):
             else, just release afterPerson
             '''
             print("check it, item is %d" % item)
+            print(indegree)
 
             if group[item] != -1:
                 for after in afterItem[item]:
@@ -106,7 +107,7 @@ class Solution(object):
             else:
                 ct = 0
                 for i in beforeItems[item]:
-                    if group[i] == group[item]:
+                    if group[i] == group[item] and group[item] != -1:
                         ct += 1
                 if ct == indegree[item]:
                     return 1
