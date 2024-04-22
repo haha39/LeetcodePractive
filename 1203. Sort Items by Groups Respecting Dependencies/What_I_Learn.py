@@ -15,16 +15,25 @@ class Solution(object):
         :rtype: List[int]
         """
 
+        def reGroup(groupID):
+            for i in range(n):
+                if group[i] == -1:
+                    group[i] = groupID
+                    groupID += 1
+
         def sortByGroup():
             a = 1
 
         def sortByUtem():
             b = 2
 
-        def reGroup():
-            c = 3
-
         output = []
+
+        # step 1 : resign group id(mostly for member with -1 group)
+        reGroup(m)
+        print(group)
+
+        # step 2
 
         return output if len(output) == n else []
 
@@ -37,12 +46,12 @@ if __name__ == '__main__':
     group1 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems1 = [[], [6], [5], [6], [3, 6], [], [], []]
 
-    # nas = haha.sortItems(n1, m1, group1, beforeItems1)
+    nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
-    # print("\nfinal output : \n")
-    # print(nas)
-    # print(group1)
-    # print(beforeItems1)
+    print("\nfinal output : \n")
+    print(nas)
+    print(group1)
+    print(beforeItems1)
 
     # input2
     n2 = 8
@@ -52,9 +61,9 @@ if __name__ == '__main__':
     group2 = [-1, -1, 1, 0, 0, 1, 0, -1]
     beforeItems2 = [[3], [6, 0], [5], [6], [3, 6, 7], [], [], []]
 
-    godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
-    print("\nfinal output : \n")
-    print(godspeed)
+    # godspeed = haha.sortItems(n2, m2, group2, beforeItems2)
+    # print("\nfinal output : \n")
+    # print(godspeed)
 
     # input3
     n3 = 4
