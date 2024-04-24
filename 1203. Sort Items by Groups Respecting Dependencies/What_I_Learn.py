@@ -5,6 +5,9 @@
 '''
 
 
+import numpy as np
+
+
 class Solution(object):
     def sortItems(self, n, m, group, beforeItems):
         """
@@ -21,19 +24,30 @@ class Solution(object):
                     group[i] = groupID
                     groupID += 1
 
+            return groupID
+
         def sortByGroup():
             a = 1
 
-        def sortByUtem():
+        def sortByItem():
             b = 2
 
         output = []
 
         # step 1 : resign group id(mostly for member with -1 group)
-        reGroup(m)
+        size = reGroup(m)
         print(group)
+        print(size)
 
         # step 2
+        INgroup = np.zeros(size, dtype=int)
+
+        for item in range(m):
+            for before in beforeItems[item]:
+                if group[before] != group[item]:
+                    INgroup[group[item]] += 1
+
+        print(INgroup)
 
         return output if len(output) == n else []
 
