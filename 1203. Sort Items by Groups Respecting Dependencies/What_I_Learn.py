@@ -26,8 +26,10 @@ class Solution(object):
 
             return groupID
 
-        def sortByGroup():
+        def sortByGroup(indegree):
             a = 1
+
+            return a
 
         def sortByItem():
             b = 2
@@ -48,6 +50,9 @@ class Solution(object):
                     INgroup[group[item]] += 1
 
         print(INgroup)
+
+        x = sortByGroup(INgroup)
+        print(x)
 
         return output if len(output) == n else []
 
