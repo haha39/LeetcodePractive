@@ -26,8 +26,17 @@ class Solution(object):
 
             return groupID
 
-        def sortByGroup(indegree):
+        def sortByGroup(indegree, groupSize):
             a = 1
+            stack = []
+            order = []
+
+            for id in range(groupSize):
+                if indegree[id] == 0:
+                    stack.append(id)
+
+            print("sortByGroup, stack is : ")
+            print(stack)
 
             return a
 
@@ -37,12 +46,12 @@ class Solution(object):
         output = []
 
         # step 1 : resign group id(mostly for member with -1 group)
-        size = reGroup(m)
+        groupSize = reGroup(m)
         print(group)
-        print(size)
+        print(groupSize)
 
         # step 2
-        INgroup = np.zeros(size, dtype=int)
+        INgroup = np.zeros(groupSize, dtype=int)
 
         for item in range(m):
             for before in beforeItems[item]:
@@ -51,7 +60,7 @@ class Solution(object):
 
         print(INgroup)
 
-        x = sortByGroup(INgroup)
+        x = sortByGroup(INgroup, groupSize)
         print(x)
 
         return output if len(output) == n else []
