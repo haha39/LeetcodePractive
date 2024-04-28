@@ -66,8 +66,10 @@ class Solution(object):
             for before in beforeItems[item]:
                 if group[before] != group[item]:
                     INgroup[group[item]] += 1
+                    afterGroup[group[before]].append(group[item])
 
         print(INgroup)
+        print(afterGroup)
 
         x = sortByGroup(INgroup, groupSize)
         print(x)
