@@ -38,6 +38,11 @@ class Solution(object):
             print("sortByGroup, stack is : ")
             print(stack)
 
+            for id in stack:
+                order.append(id)
+
+            print(order)
+
             return a
 
         def sortByItem():
@@ -52,6 +57,10 @@ class Solution(object):
 
         # step 2
         INgroup = np.zeros(groupSize, dtype=int)
+        afterGroup = []
+
+        for i in range(groupSize):
+            afterGroup.append([])
 
         for item in range(m):
             for before in beforeItems[item]:
@@ -67,7 +76,9 @@ class Solution(object):
 
 
 if __name__ == '__main__':
+
     haha = Solution()
+
     # input1
     n1 = 8
     m1 = 2
