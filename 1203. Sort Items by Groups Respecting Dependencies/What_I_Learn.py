@@ -35,15 +35,25 @@ class Solution(object):
                 if indegree[id] == 0:
                     stack.append(id)
 
-            print("sortByGroup, stack is : ")
+            print("\nsortByGroup, stack is : ")
             print(stack)
 
-            for id in stack:
+            while len(stack) != 0:
+
+                id = stack.pop()
                 order.append(id)
 
+                for after in afterGroup[id]:
+
+                    indegree[after] -= 1
+
+                    if indegree[after] == 0:
+                        stack.append(after)
+
+            print("\nsortByGroup, group order:")
             print(order)
 
-            return a
+            return order
 
         def sortByItem():
             b = 2
@@ -71,8 +81,11 @@ class Solution(object):
         print(INgroup)
         print(afterGroup)
 
-        x = sortByGroup(INgroup, groupSize)
-        print(x)
+        groupOrder = sortByGroup(INgroup, groupSize)
+
+        # step3
+        yayaItisTheNewOrder = 55
+        print(groupOrder)
 
         return output if len(output) == n else []
 
