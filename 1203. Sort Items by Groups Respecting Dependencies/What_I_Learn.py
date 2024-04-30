@@ -58,6 +58,8 @@ class Solution(object):
         def sortByItem():
             b = 2
 
+            return 5
+
         output = []
 
         # step 1 : resign group id(mostly for member with -1 group)
@@ -65,7 +67,7 @@ class Solution(object):
         print(group)
         print(groupSize)
 
-        # step 2
+        # step 2 : Topological Sort to groups
         INgroup = np.zeros(groupSize, dtype=int)
         afterGroup = []
 
@@ -83,9 +85,12 @@ class Solution(object):
 
         groupOrder = sortByGroup(INgroup, groupSize)
 
-        # step3
+        # step3 : Topological Sort to items in sortes groups
         yayaItisTheNewOrder = 55
         print(groupOrder)
+
+        magma = sortByItem()
+        print(magma)
 
         return output if len(output) == n else []
 
