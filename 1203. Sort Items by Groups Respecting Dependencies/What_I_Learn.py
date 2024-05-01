@@ -74,7 +74,7 @@ class Solution(object):
             afterGroup.append([])
             groupMember.append([])
 
-        for item in range(m):
+        for item in range(n):
             for before in beforeItems[item]:
                 if group[before] != group[item]:
                     INgroup[group[item]] += 1
