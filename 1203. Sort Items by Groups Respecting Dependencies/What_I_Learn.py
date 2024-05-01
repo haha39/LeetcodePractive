@@ -18,13 +18,13 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        def reGroup(groupID):
+        def reGroup(newSize):
             for i in range(n):
                 if group[i] == -1:
-                    group[i] = groupID
-                    groupID += 1
+                    group[i] = newSize
+                    newSize += 1
 
-            return groupID
+            return newSize
 
         def sortByGroup(indegree, groupSize):
             a = 1
@@ -60,8 +60,6 @@ class Solution(object):
 
             return [5]
 
-        output = []
-
         # step 1 : resign group id(mostly for member with -1 group)
         groupSize = reGroup(m)
         print(group)
@@ -70,9 +68,11 @@ class Solution(object):
         # step 2 : Topological Sort to groups
         INgroup = np.zeros(groupSize, dtype=int)
         afterGroup = []
+        groupMember = []
 
         for i in range(groupSize):
             afterGroup.append([])
+            groupMember.append([])
 
         for item in range(m):
             for before in beforeItems[item]:
@@ -80,21 +80,27 @@ class Solution(object):
                     INgroup[group[item]] += 1
                     afterGroup[group[before]].append(group[item])
 
+            groupMember[group[item]].append(item)
+
         print(INgroup)
         print(afterGroup)
+        print(groupMember)
 
         groupOrder = sortByGroup(INgroup, groupSize)
         print(groupOrder)
 
+        if len(groupOrder) != groupSize:  # in case
+            return []
+
         # step3 : Topological Sort to items in sortes groups
-        yayaItisTheNewOrder = []
+        output = []
 
         for groupId in groupOrder:
+
             sortedMem = sortByItem(groupId)
+            output += sortedMem
 
-            yayaItisTheNewOrder += sortedMem
-
-        print(yayaItisTheNewOrder)
+        print(output)
 
         return output if len(output) == n else []
 
