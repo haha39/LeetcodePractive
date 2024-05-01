@@ -55,10 +55,10 @@ class Solution(object):
 
             return order
 
-        def sortByItem():
+        def sortByItem(groupID):
             b = 2
 
-            return 5
+            return [5]
 
         output = []
 
@@ -84,13 +84,17 @@ class Solution(object):
         print(afterGroup)
 
         groupOrder = sortByGroup(INgroup, groupSize)
-
-        # step3 : Topological Sort to items in sortes groups
-        yayaItisTheNewOrder = 55
         print(groupOrder)
 
-        magma = sortByItem()
-        print(magma)
+        # step3 : Topological Sort to items in sortes groups
+        yayaItisTheNewOrder = []
+
+        for groupId in groupOrder:
+            sortedMem = sortByItem(groupId)
+
+            yayaItisTheNewOrder += sortedMem
+
+        print(yayaItisTheNewOrder)
 
         return output if len(output) == n else []
 
