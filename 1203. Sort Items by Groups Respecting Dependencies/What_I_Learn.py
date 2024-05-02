@@ -56,7 +56,9 @@ class Solution(object):
             return order
 
         def sortByItem(groupID):
-            b = 2
+            # for member in groupMember[groupID]:
+            #     print(member)
+            print(groupMember[groupID])
 
             return [5]
 
