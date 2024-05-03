@@ -56,6 +56,7 @@ class Solution(object):
             return order
 
         def sortByItem(groupID):
+            stack = []
             # for member in groupMember[groupID]:
             #     print(member)
             print(groupMember[groupID])
@@ -95,13 +96,18 @@ class Solution(object):
             return []
 
         # step3 : Topological Sort to items in sortes groups
+        indegree = []
         output = []
+
+        for i in range(n):
+            indegree.append(len(beforeItems[i]))
 
         for groupId in groupOrder:
 
             sortedMem = sortByItem(groupId)
             output += sortedMem
 
+        print(indegree)
         print(output)
 
         return output if len(output) == n else []
