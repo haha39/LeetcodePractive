@@ -56,10 +56,15 @@ class Solution(object):
             return order
 
         def sortByItem(groupID):
+
             stack = []
-            # for member in groupMember[groupID]:
-            #     print(member)
             print(groupMember[groupID])
+
+            for member in groupMember[groupID]:
+                # print(indegree[member])
+                if indegree[member] == 0:
+                    stack.append(member)
+            print(stack)
 
             return [5]
 
