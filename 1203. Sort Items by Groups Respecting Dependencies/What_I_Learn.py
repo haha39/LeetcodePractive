@@ -58,6 +58,7 @@ class Solution(object):
         def sortByItem(groupID):
 
             stack = []
+            tempOutput = []
             print(groupMember[groupID])
 
             for member in groupMember[groupID]:
@@ -66,6 +67,21 @@ class Solution(object):
                     stack.append(member)
             print(stack)
 
+            while len(stack) != 0:
+
+                x = stack.pop()
+                tempOutput.append(x)
+
+                for mem in groupMember[groupID]:
+                    if x in beforeItems[mem]:
+
+                        indegree[mem] -= 1
+
+                        if indegree[mem] == 0:
+                            stack.append(mem)
+
+            print("hey, we can make it piece by piece")
+            print(tempOutput)
             return [5]
 
         # step 1 : resign group id(mostly for member with -1 group)
