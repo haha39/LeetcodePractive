@@ -82,7 +82,7 @@ class Solution(object):
 
             print("hey, we can make it piece by piece")
             print(tempOutput)
-            return [tempOutput]
+            return tempOutput
 
         # step 1 : resign group id(mostly for member with -1 group)
         groupSize = reGroup(m)
@@ -130,7 +130,7 @@ class Solution(object):
         for groupId in groupOrder:
 
             sortedMem = sortByItem(groupId)
-            output.extend(sortedMem)
+            output += sortedMem
 
         print(indegree)
         print(output)
