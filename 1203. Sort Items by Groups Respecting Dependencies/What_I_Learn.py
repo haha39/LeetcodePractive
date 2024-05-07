@@ -1,7 +1,7 @@
 '''
-1. put item with 0 indegree in queue
-2. use bfs to check if we can solve the whole group altogather
-3. 
+1. initial
+2. Topological Sort to groups
+3. Topological Sort to members in the sorted group order
 '''
 
 
@@ -19,6 +19,7 @@ class Solution(object):
         """
 
         def reGroup(newSize):
+
             for i in range(n):
                 if group[i] == -1:
                     group[i] = newSize
@@ -27,7 +28,7 @@ class Solution(object):
             return newSize
 
         def sortByGroup(indegree, groupSize):
-            a = 1
+
             stack = []
             order = []
 
@@ -35,23 +36,15 @@ class Solution(object):
                 if indegree[id] == 0:
                     stack.append(id)
 
-            print("\nsortByGroup, stack is : ")
-            print(stack)
-
             while len(stack) != 0:
-
                 id = stack.pop()
                 order.append(id)
 
                 for after in afterGroup[id]:
-
                     indegree[after] -= 1
 
                     if indegree[after] == 0:
                         stack.append(after)
-
-            print("\nsortByGroup, group order:")
-            print(order)
 
             return order
 
@@ -59,35 +52,26 @@ class Solution(object):
 
             stack = []
             tempOutput = []
-            print(groupMember[groupID])
 
             for member in groupMember[groupID]:
-                # print(indegree[member])
-                if indegree[member] == 0:
+                if INmember[member] == 0:
                     stack.append(member)
-            print(stack)
 
             while len(stack) != 0:
-
                 x = stack.pop()
                 tempOutput.append(x)
 
                 for mem in groupMember[groupID]:
                     if x in beforeItems[mem]:
+                        INmember[mem] -= 1
 
-                        indegree[mem] -= 1
-
-                        if indegree[mem] == 0:
+                        if INmember[mem] == 0:
                             stack.append(mem)
 
-            print("hey, we can make it piece by piece")
-            print(tempOutput)
             return tempOutput
 
         # step 1 : resign group id(mostly for member with -1 group)
         groupSize = reGroup(m)
-        print(group)
-        print(groupSize)
 
         # step 2 : Topological Sort to groups
         INgroup = np.zeros(groupSize, dtype=int)
@@ -106,34 +90,28 @@ class Solution(object):
 
             groupMember[group[item]].append(item)
 
-        print(INgroup)
-        print(afterGroup)
-        print(groupMember)
-
         groupOrder = sortByGroup(INgroup, groupSize)
-        print(groupOrder)
 
-        if len(groupOrder) != groupSize:  # in case
+        # in case
+        if len(groupOrder) != groupSize:
             return []
 
         # step3 : Topological Sort to items in sortes groups
-        indegree = []
+        INmember = []
         output = []
 
         for mem in range(n):
-            ct = 0
+            indegree = 0
+
             for bef in beforeItems[mem]:
                 if group[bef] == group[mem]:
-                    ct += 1
-            indegree.append(ct)
+                    indegree += 1
+
+            INmember.append(indegree)
 
         for groupId in groupOrder:
-
             sortedMem = sortByItem(groupId)
             output += sortedMem
-
-        print(indegree)
-        print(output)
 
         return output if len(output) == n else []
 
@@ -150,10 +128,10 @@ if __name__ == '__main__':
 
     nas = haha.sortItems(n1, m1, group1, beforeItems1)
 
-    print("\nfinal output : \n")
+    print("\nfinal output :")
     print(nas)
-    print(group1)
-    print(beforeItems1)
+    # print(group1)
+    # print(beforeItems1)
 
     # input2
     n2 = 8
