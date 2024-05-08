@@ -4,7 +4,6 @@
 3. Topological Sort to members in the sorted group order
 '''
 
-
 import numpy as np
 
 
@@ -19,15 +18,18 @@ class Solution(object):
         """
 
         def reGroup(newSize):
+            # make member without a group has a new group
 
             for i in range(n):
                 if group[i] == -1:
                     group[i] = newSize
                     newSize += 1
 
+            # return the number of how many groups there are now
             return newSize
 
         def sortByGroup(indegree, groupSize):
+            # topological Sort to groups
 
             stack = []
             order = []
@@ -46,14 +48,16 @@ class Solution(object):
                     if indegree[after] == 0:
                         stack.append(after)
 
+            # return the sorted group order
             return order
 
         def sortByItem(groupID):
+            # topological Sort to members in this groupID
 
             stack = []
             tempOutput = []
 
-            for member in groupMember[groupID]:
+            for member in groupMember[groupID]:  # initail
                 if INmember[member] == 0:
                     stack.append(member)
 
@@ -68,21 +72,22 @@ class Solution(object):
                         if INmember[mem] == 0:
                             stack.append(mem)
 
+            # return the sorted member order
             return tempOutput
 
         # step 1 : resign group id(mostly for member with -1 group)
-        groupSize = reGroup(m)
+        groupSize = reGroup(m)  # reGroup()
 
-        # step 2 : Topological Sort to groups
+        # step 2 : topological Sort to groups
         INgroup = np.zeros(groupSize, dtype=int)
         afterGroup = []
         groupMember = []
 
-        for i in range(groupSize):
+        for i in range(groupSize):  # initail
             afterGroup.append([])
             groupMember.append([])
 
-        for item in range(n):
+        for item in range(n):  # initail
             for before in beforeItems[item]:
                 if group[before] != group[item]:
                     INgroup[group[item]] += 1
@@ -90,17 +95,17 @@ class Solution(object):
 
             groupMember[group[item]].append(item)
 
-        groupOrder = sortByGroup(INgroup, groupSize)
+        groupOrder = sortByGroup(INgroup, groupSize)  # sortByGroup()
 
-        # in case
+        # in case we can't sort all of the groups
         if len(groupOrder) != groupSize:
             return []
 
-        # step3 : Topological Sort to items in sortes groups
+        # step3 : topological Sort to items in sorted groups
         INmember = []
         output = []
 
-        for mem in range(n):
+        for mem in range(n):  # initail
             indegree = 0
 
             for bef in beforeItems[mem]:
@@ -110,9 +115,10 @@ class Solution(object):
             INmember.append(indegree)
 
         for groupId in groupOrder:
-            sortedMem = sortByItem(groupId)
+            sortedMem = sortByItem(groupId)  # sortByItem()
             output += sortedMem
 
+        # return output
         return output if len(output) == n else []
 
 
